@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Cilantro — detail.css
+   Generic single-product detail page: hero info (left) + ingredient
+   bubble diagram (right). Driven entirely by the backend via detail.js.
+   Shares tokens, fonts and sidebar styles with main.css.
+   ========================================================================== */
+
+.page-title {
+  margin-bottom: 32px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 500px) 1fr;
+  gap: 64px;
+  max-width: 1300px;
+  margin: 44px auto 0;
+  align-items: start;
+}
+
+/* ---------- left column ---------- */
+
+.detail-left {
+  width: 100%;
+  max-width: 494px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.detail-head {
+  text-align: center;
+  font-size: 24px;
+}
+
+.detail-head .brand {
+  font-weight: 500;
+}
+
+.detail-head .product-name {
+  font-weight: 400;
+}
+
+.detail-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 47px;
+}
+
+.detail-bottle {
+  width: 248px;
+  height: auto;
+  object-fit: contain;
+}
+
+.detail-size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-label {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 13px;
+}
+
+.detail-pill {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+.size-ruler {
+  width: 60px;
+  height: 0;
+  margin-top: 8px;
+  border-bottom: 1.5px dashed #c0392b;
+  position: relative;
+}
+
+.size-ruler::before,
+.size-ruler::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  width: 1.5px;
+  height: 8px;
+  background: #c0392b;
+}
+
+.size-ruler::before {
+  left: 0;
+}
+
+.size-ruler::after {
+  right: 0;
+}
+
+.size-caption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.divider-thin {
+  height: 1px;
+  opacity: 0.6;
+}
+
+.detail-for {
+  text-align: left;
+}
+
+.detail-for ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.detail-for li {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.buy-link {
+  display: block;
+  text-align: center;
+  font-size: 17px;
+  text-decoration: underline;
+}
+
+/* ---------- right column: ingredient bubble diagram ---------- */
+
+.detail-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.ingredient-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  aspect-ratio: 1 / 1;
+}
+
+.diagram-halo {
+  position: absolute;
+  inset: -11%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fffdf9 0%, #fff8ee 5%, rgba(255, 248, 238, 0) 100%);
+  filter: blur(5px);
+  background-color: transparent;
+  border: 1px solid #4D2B12;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+.bubble.is-interactive {
+  cursor: pointer;
+}
+
+.bubble-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  filter: blur(7px);
+}
+
+.bubble-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 6px;
+  max-width: 92%;
+}
+
+.bubble-title {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.bubble-amount {
+  display: none;
+  font-size: 11px;
+  margin-left: 5px;
+  color: #333;
+}
+
+.bubble.is-active .bubble-amount {
+  display: inline;
+}
+
+.bubble.is-active .bubble-title {
+  font-size: 20px;
+}
+
+.bubble-detail {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: opacity 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
+}
+
+.bubble.is-active .bubble-detail {
+  max-height: 140px;
+  opacity: 1;
+  margin-top: 26px;
+}
+
+.detail-col {
+  text-align: center;
+}
+
+.detail-heading {
+  font-weight: 500;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+
+.detail-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.detail-col li {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-left {
+    max-width: 100%;
+  }
+}

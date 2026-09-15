@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cilantro — What's Trending</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@400;500&family=Oxanium:wght@600&family=Overpass+Mono:wght@500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- ===== Sidebar ===== -->
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-mark">C</div>
+
+  <div class="sidebar-panel">
+    <div class="logo">
+      <span class="logo-c">C</span><span class="logo-rest">ilantro</span>
+    </div>
+
+    <ul class="menu-list">
+      <li><a href="index.html" data-menu="trending">트렌드 영양제</a></li>
+      <li><a href="products.html" data-menu="products">제품별 설명</a></li>
+      <li><a href="#" data-menu="recommend">맞춤 영양제 추천</a></li>
+      <li><a href="#" data-menu="search">성분 검색</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== Main ===== -->
+<main class="page">
+  <h1 class="page-title">What's Trending</h1>
+
+  <section class="scatter" id="scatter">
+    <!-- items injected by index.js -->
+  </section>
+</main>
+
+<!-- ===== Popup ===== -->
+<div id="overlay" class="overlay" hidden></div>
+<div id="popup" class="popup" hidden>
+  <div class="popup-head">
+    <h2 id="popup-name">Product</h2>
+  </div>
+
+  <div class="popup-body">
+    <div class="popup-block">
+      <h3>What?</h3>
+      <p id="popup-what"></p>
+    </div>
+
+    <div class="popup-block">
+      <h3>Why?</h3>
+      <p id="popup-why"></p>
+    </div>
+
+    <div class="popup-block">
+      <h3>How?</h3>
+      <p id="popup-how-text"></p>
+      <div id="popup-chart" class="popup-chart"></div>
+    </div>
+  </div>
+</div>
+
+<script src="common.js"></script>
+<script src="api.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

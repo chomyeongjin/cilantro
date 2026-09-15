@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Cilantro — category.css
+   Generic product-comparison grid for any option (omega-3, vitamin-b,
+   immunity, ...). Shares tokens, fonts and sidebar styles with main.css.
+   ========================================================================== */
+
+#category-title {
+  margin-bottom: 32px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.compare-cell {
+  --group-inset: 7.5%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 31px 20px 35px;
+  border-right: 1.5px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
+  transition: background 0.15s ease;
+}
+
+a.compare-cell:hover {
+  background: rgba(57, 43, 32, 0.05);
+}
+
+.compare-cell:nth-child(4n) {
+  border-right: none;
+}
+
+.compare-cell:nth-last-child(-n+4) {
+  border-bottom: none;
+}
+
+.cell-head {
+  margin-left: var(--group-inset);
+}
+
+.cell-head .brand {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.cell-head .product-name {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.cell-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.cell-image img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.cell-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-left: var(--group-inset);
+  margin-right: var(--group-inset);
+}
+
+.sub-label {
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.effects {
+  text-align: left;
+}
+
+.effects ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.effects li {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pill-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pill-visual img {
+  display: block;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .compare-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compare-cell:nth-child(4n) {
+    border-right: 1.5px solid var(--line);
+  }
+
+  .compare-cell:nth-child(2n) {
+    border-right: none;
+  }
+
+  .compare-cell:nth-last-child(-n+4) {
+    border-bottom: 1.5px solid var(--line);
+  }
+
+  .compare-cell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
