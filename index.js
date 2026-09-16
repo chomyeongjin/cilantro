@@ -29,6 +29,8 @@ const popupWhatEl = document.getElementById("popup-what");
 const popupWhyEl = document.getElementById("popup-why");
 const popupHowTextEl = document.getElementById("popup-how-text");
 const popupChartEl = document.getElementById("popup-chart");
+const popupCloseEl = document.getElementById("popup-close");
+let popupTrigger = null;
 
 function renderItems(items) {
   scatterEl.innerHTML = "";
@@ -62,71 +64,119 @@ function renderItems(items) {
   });
 }
 
+function escapeChartText(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[c]);
+}
+
+function chartValue(value) {
+  return Number.isFinite(value) && value >= 0 && value <= 100;
+}
+
 function buildChart(data) {
-  const width = 256;
-  const height = 90;
-  const padLeft = 8;
-  const padRight = 8;
-  const padTop = 12;
-  const padBottom = 16;
-
-  const plotW = width - padLeft - padRight;
-  const plotH = height - padTop - padBottom;
-
-  const maxVal = Math.max(...data.map((d) => d.value));
-  const minVal = 0;
-
-  const points = data.map((d, i) => {
-    const x = padLeft + (plotW / (data.length - 1)) * i;
-    const y = padTop + plotH - ((d.value - minVal) / (maxVal - minVal)) * plotH;
-    return { x, y, ...d };
+  if (!Array.isArray(data) || !data.some(d => chartValue(d.value))) {
+    return '<p>표시할 검색 강도 데이터가 없습니다.</p>';
+  }
+  const x = i => 30 + (data.length === 1 ? 135 : 270 * i / (data.length - 1));
+  const y = value => 132 - value * 1.1;
+  let penDown = false;
+  const path = [];
+  const dots = [];
+  data.forEach((point, i) => {
+    if (!chartValue(point.value)) { penDown = false; return; }
+    path.push(`${penDown ? 'L' : 'M'} ${x(i).toFixed(1)} ${y(point.value).toFixed(1)}`);
+    penDown = true;
+    // Only isolated observations need dots; the rest form a clean line.
+    if (!chartValue(data[i - 1]?.value) && !chartValue(data[i + 1]?.value)) {
+      dots.push(`<circle class="chart-dot" cx="${x(i).toFixed(1)}" cy="${y(point.value).toFixed(1)}" r="2"><title>${escapeChartText(point.label)} · ${point.value.toFixed(1)}</title></circle>`);
+    }
   });
+  const indices = [...new Set([0, Math.floor((data.length - 1) / 2), data.length - 1])];
+  const labels = indices.map(i => `<text class="chart-label" x="${x(i).toFixed(1)}" y="154" text-anchor="${i === 0 ? 'start' : i === data.length - 1 ? 'end' : 'middle'}">${escapeChartText(data[i].label)}</text>`).join('');
+  return `<svg viewBox="0 0 330 164" role="img" aria-label="날짜별 상대 검색 강도 선 그래프. 0부터 100까지, 누락된 날짜는 선을 끊어 표시합니다.">
+    <text class="chart-label" x="30" y="10">상대 검색 강도</text>
+    ${[0, 50, 100].map(v => `<line class="chart-axis" x1="30" y1="${y(v)}" x2="300" y2="${y(v)}"></line><text class="chart-label" x="24" y="${y(v) + 3}" text-anchor="end">${v}</text>`).join('')}
+    <path class="chart-line" d="${path.join(' ')}"></path>${dots.join('')}
+    <line id="chart-cursor" class="chart-cursor" x1="300" x2="300" y1="22" y2="132"></line>
+    <circle id="chart-selected" class="chart-dot" cx="300" cy="132" r="3"></circle>
+    ${labels}</svg>
+    <p id="chart-reading" class="chart-reading" aria-live="polite"></p>
+    <input id="chart-date" type="range" min="0" max="${data.length - 1}" value="${data.length - 1}" step="1" aria-label="날짜별 상대 검색 강도 탐색">
+    <p class="chart-hint">날짜를 움직여 강도를 확인하세요. 누락된 구간은 선이 끊깁니다.</p>`;
+}
 
-  const pathD = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)
-    .join(" ");
+function wireChart(data) {
+  const slider = document.getElementById('chart-date');
+  if (!slider) return;
+  const update = () => {
+    const index = Number(slider.value);
+    const point = data[index];
+    const reading = `${point.label} · ${chartValue(point.value) ? point.value.toFixed(1) + ' / 100' : '데이터 없음'}`;
+    document.getElementById('chart-reading').textContent = reading;
+    slider.setAttribute('aria-valuetext', reading);
+    const x = 30 + (data.length === 1 ? 135 : 270 * index / (data.length - 1));
+    const cursor = document.getElementById('chart-cursor');
+    cursor.setAttribute('x1', x);
+    cursor.setAttribute('x2', x);
+    const selected = document.getElementById('chart-selected');
+    selected.setAttribute('cx', x);
+    selected.setAttribute('cy', chartValue(point.value) ? 132 - point.value * 1.1 : 132);
+    selected.style.display = chartValue(point.value) ? '' : 'none';
+  };
+  slider.addEventListener('input', update);
+  update();
+}
 
-  const dots = points
-    .map(
-      (p) => `<circle class="chart-dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.5"></circle>`
-    )
-    .join("");
-
-  const labels = points
-    .map(
-      (p) =>
-        `<text class="chart-label" x="${p.x.toFixed(1)}" y="${height - 2}" text-anchor="middle">${p.label}</text>`
-    )
-    .join("");
-
-  const lastPoint = points[points.length - 1];
-  const growth = Math.round(
-    ((lastPoint.value - points[0].value) / points[0].value) * 100
-  );
-
-  const valueTag = `<text class="chart-value" x="${lastPoint.x.toFixed(1)}" y="${(lastPoint.y - 8).toFixed(1)}" text-anchor="middle">+${growth}%</text>`;
-
-  return `
-    <svg viewBox="0 0 ${width} ${height}">
-      <line class="chart-axis" x1="${padLeft}" y1="${padTop + plotH}" x2="${width - padRight}" y2="${padTop + plotH}"></line>
-      <path class="chart-line" d="${pathD}"></path>
-      ${dots}
-      ${labels}
-      ${valueTag}
-    </svg>
-  `;
+function sourceLink(url, title) {
+  try {
+    const parsed = new URL(url);
+    if (!['http:', 'https:'].includes(parsed.protocol) || parsed.username || parsed.password) return null;
+    const link = document.createElement('a');
+    link.href = parsed.href;
+    link.textContent = title;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    return link;
+  } catch { return null; }
 }
 
 function openPopup(item, triggerEl) {
+  popupTrigger = triggerEl;
   popupNameEl.textContent = item.name;
   popupWhatEl.textContent = item.what;
+  const whatSourceEl = document.getElementById('popup-what-source');
+  whatSourceEl.replaceChildren();
+  if (item.whatSource) {
+    const link = sourceLink(item.whatSource.url, item.whatSource.title + ' ↗');
+    if (link) whatSourceEl.append(link);
+  }
   popupWhyEl.textContent = item.why;
+  const newsEl = document.getElementById('popup-news');
+  newsEl.replaceChildren();
+  (item.whySources || []).forEach(source => {
+    const link = sourceLink(source.url, source.title);
+    if (!link) return;
+    const li = document.createElement('li');
+    const date = document.createElement('span');
+    date.className = 'news-date';
+    date.textContent = `${source.publishedAt} · ${source.publisher}`;
+    li.append(link, date);
+    newsEl.append(li);
+  });
+  document.getElementById('popup-interest').textContent = Number.isFinite(item.interestIndex)
+    ? `최근 7일 평균 ${item.interestIndex.toFixed(1)} / 100` : '최근 7일 평균 데이터 부족';
   popupHowTextEl.textContent = item.how && item.how.summary;
-  popupChartEl.innerHTML = item.how && item.how.chart ? buildChart(item.how.chart) : "";
+  popupChartEl.innerHTML = buildChart(item.how?.chart);
+  wireChart(item.how?.chart);
 
   overlayEl.hidden = false;
   popupEl.hidden = false;
   positionPopup(triggerEl);
+  document.querySelector('main').inert = true;
+  document.getElementById('sidebar').inert = true;
+  document.body.classList.add('popup-open');
+  popupCloseEl.focus();
 }
 
 function positionPopup(triggerEl) {
@@ -156,14 +206,26 @@ function positionPopup(triggerEl) {
 }
 
 function closePopup() {
+  if (popupEl.hidden) return;
   overlayEl.hidden = true;
   popupEl.hidden = true;
+  document.querySelector('main').inert = false;
+  document.getElementById('sidebar').inert = false;
+  document.body.classList.remove('popup-open');
+  if (popupTrigger?.isConnected) popupTrigger.focus();
 }
 
 overlayEl.addEventListener("click", closePopup);
-popupEl.addEventListener("click", closePopup);
+popupCloseEl.addEventListener("click", closePopup);
 document.addEventListener("keydown", (e) => {
+  if (popupEl.hidden) return;
   if (e.key === "Escape") closePopup();
+  if (e.key === 'Tab') {
+    const controls = [...popupEl.querySelectorAll('button, a[href], input:not([disabled])')];
+    const first = controls[0], last = controls[controls.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
 });
 
 async function load() {

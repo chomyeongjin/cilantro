@@ -1,7 +1,7 @@
 [
-  {"id":"probiotics","name":"유산균","keywords":["유산균","프로바이오틱스"],"image":"/images/pill_sample.png","imageKind":"placeholder"},
-  {"id":"omega3","name":"오메가3","keywords":["오메가3","오메가 3","알티지오메가3","rTG오메가3"],"image":"/images/pill_sample.png","imageKind":"placeholder"},
-  {"id":"magnesium","name":"마그네슘","keywords":["마그네슘 영양제","마그네슘 보충제"],"image":"/images/pill_sample.png","imageKind":"placeholder"},
-  {"id":"vitamin-d","name":"비타민D","keywords":["비타민D","비타민 D"],"image":"/images/pill_sample.png","imageKind":"placeholder"},
-  {"id":"lutein","name":"루테인","keywords":["루테인","루테인 영양제"],"image":"/images/pill_sample.png","imageKind":"placeholder"}
+  {"id":"probiotics","name":"유산균","keywords":["유산균","프로바이오틱스"],"image":"/images/pill_sample.png","imageKind":"placeholder","description":"장 건강을 위해 섭취하는 유익균을 담은 영양제입니다. 프로바이오틱스는 충분한 양을 섭취했을 때 건강에 도움을 주는 살아 있는 미생물로, 균주에 따라 특성이 다릅니다.","descriptionSource":{"title":"NIH · 프로바이오틱스","url":"https://ods.od.nih.gov/factsheets/Probiotics-Consumer/"}},
+  {"id":"omega3","name":"오메가3","keywords":["오메가3","오메가 3","알티지오메가3","rTG오메가3"],"image":"/images/pill_sample.png","imageKind":"placeholder","description":"생선이나 해조류 등에 들어 있는 지방산을 보충하는 영양제입니다. 대표 성분인 EPA와 DHA는 우리 몸의 세포막을 구성하는 데 쓰입니다.","descriptionSource":{"title":"NIH · 오메가3","url":"https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"}},
+  {"id":"magnesium","name":"마그네슘","keywords":["마그네슘 영양제","마그네슘 보충제"],"newsQuery":"마그네슘 영양제","image":"/images/pill_sample.png","imageKind":"placeholder","description":"근육과 신경 기능, 에너지 생성에 필요한 미네랄입니다. 견과류·콩·잎채소 등에도 들어 있으며, 영양제로 부족한 섭취량을 보충할 수 있습니다.","descriptionSource":{"title":"NIH · 마그네슘","url":"https://ods.od.nih.gov/factsheets/Magnesium-Consumer/"}},
+  {"id":"vitamin-d","name":"비타민D","keywords":["비타민D","비타민 D"],"image":"/images/pill_sample.png","imageKind":"placeholder","description":"칼슘 흡수를 돕고 뼈와 근육 기능에 필요한 비타민입니다. 햇빛을 통해 피부에서 만들어지며, 음식이나 영양제로도 섭취할 수 있습니다.","descriptionSource":{"title":"NIH · 비타민D","url":"https://ods.od.nih.gov/factsheets/VitaminD-Consumer/"}},
+  {"id":"lutein","name":"루테인","keywords":["루테인","루테인 영양제"],"image":"/images/pill_sample.png","imageKind":"placeholder","description":"녹색 잎채소 등에 들어 있는 카로티노이드 색소입니다. 눈의 망막과 수정체에도 존재하며, 눈 건강용 영양제의 성분으로 사용됩니다.","descriptionSource":{"title":"미국 국립안연구소 · 루테인","url":"https://www.nei.nih.gov/eye-health-information/clinical-trials/age-related-eye-disease-studies-aredsareds2/aredsareds2-frequently-asked-questions"}}
 ]

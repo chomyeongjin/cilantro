@@ -38,6 +38,7 @@ class ApiTests(unittest.TestCase):
 
     def test_uncollected_state(self):
         self.assertEqual(self.client.get('/api/trending').status_code, 503)
+        self.assertEqual(self.client.get('/api/trending').headers['cache-control'], 'no-store')
         self.assertFalse(self.client.get('/api/trending/status').json()['ready'])
         self.assertFalse(self.client.get('/health').json()['dataReady'])
 
@@ -49,11 +50,34 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(growth.status_code, 200)
         self.assertEqual(interest.headers['cache-control'], 'no-store')
         self.assertEqual(interest.json()[0]['id'], 'lutein')
+        self.assertIn('카로티노이드', interest.json()[0]['what'])
+        self.assertEqual(len(interest.json()[0]['how']['chart']), 90)
         self.assertEqual(growth.json()[0]['id'], 'probiotics')
         status = self.client.get('/api/trending/status').json()
         self.assertTrue(status['ready'])
         self.assertFalse(status['stale'])
         self.assertTrue(self.client.get('/health').json()['dataReady'])
+        self.assertEqual(status['interestCount'], 5)
+        self.assertEqual(status['growthCount'], 5)
+        self.assertEqual(self.client.get('/api/trending/status').headers['cache-control'], 'no-store')
+
+    def test_corrupt_database_returns_service_unavailable(self):
+        self.path.write_bytes(b'not a sqlite database')
+        for endpoint in ['/api/trending', '/api/trending/status', '/health']:
+            with self.subTest(endpoint=endpoint):
+                self.assertEqual(self.client.get(endpoint).status_code, 503)
+
+    def test_lifespan_can_disable_background_collection(self):
+        with patch.dict('os.environ', {'TRENDS_AUTO_COLLECT': '0'}), patch('main.Collector.start') as start:
+            with TestClient(app) as client:
+                self.assertFalse(client.get('/api/trending/status').json()['collection']['enabled'])
+            start.assert_not_called()
+
+    def test_lifespan_starts_and_stops_collector(self):
+        with patch.dict('os.environ', {'TRENDS_AUTO_COLLECT': '1'}), patch('main.Collector') as factory:
+            with TestClient(app):
+                factory.return_value.start.assert_called_once()
+            factory.return_value.stop.assert_called_once()
 
     def test_stale_snapshot(self):
         self.seed(age=4)

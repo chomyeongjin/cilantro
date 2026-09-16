@@ -1,18 +1,51 @@
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Literal
+from contextlib import asynccontextmanager
+import json
+import os
+import sqlite3
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from service import KST, db_path, read_snapshot, ranked
+from scheduler import Collector
 
-app = FastAPI(title='Cilantro NAVER Trends', version='1.0.0')
+
+@asynccontextmanager
+async def lifespan(app):
+    collector = Collector()
+    app.state.collector = collector
+    if os.environ.get('TRENDS_AUTO_COLLECT', '1') == '1':
+        collector.start()
+    try:
+        yield
+    finally:
+        collector.stop()
+
+
+app = FastAPI(title='Cilantro NAVER Trends', version='1.1.0', lifespan=lifespan)
+
+
+@app.middleware('http')
+async def no_cache_api(request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith('/api/') or request.url.path == '/health':
+        response.headers['Cache-Control'] = 'no-store'
+    return response
+
+
+def snapshot():
+    try:
+        return read_snapshot(db_path())
+    except (sqlite3.Error, json.JSONDecodeError, OSError):
+        raise HTTPException(503, '저장된 트렌드 데이터를 읽을 수 없습니다. 잠시 후 다시 시도하세요.') from None
 
 
 @app.get('/api/trending')
 def trending(response: Response, sort: Literal['interest', 'growth'] = 'interest'):
-    items = read_snapshot(db_path())
-    if items is None:
+    items = snapshot()
+    if not items:
         raise HTTPException(503, '데이터 준비 중입니다. API 키 설정 후 수집을 실행하세요.')
     response.headers['Cache-Control'] = 'no-store'
     return ranked(items, sort)
@@ -20,21 +53,25 @@ def trending(response: Response, sort: Literal['interest', 'growth'] = 'interest
 
 @app.get('/api/trending/status')
 def status():
-    items = read_snapshot(db_path())
+    items = snapshot()
+    collector = getattr(app.state, 'collector', None)
+    collection = dict(collector.state) if collector else {'enabled': False, 'running': False}
     if not items:
-        return {'ready': False, 'source': 'NAVER DataLab', 'message': '데이터 준비 중'}
+        return {'ready': False, 'source': 'NAVER DataLab', 'message': '데이터 준비 중', 'collection': collection}
     first = items[0]
     stale = (datetime.now(KST).date() - date.fromisoformat(first['dataThrough'])) > timedelta(days=2)
     return {'ready': True, 'stale': stale, 'source': first['source'],
             'dataThrough': first['dataThrough'], 'fetchedAt': first['fetchedAt'],
             'rankingScope': first['rankingScope'], 'keywordSetVersion': first['keywordSetVersion'],
             'scoreVersion': first['scoreVersion'],
-            'excludedFromGrowth': [i['name'] for i in items if not i['growthEligible']]}
+            'excludedFromGrowth': [i['name'] for i in items if not i['growthEligible'] or i['growth7d'] <= 0],
+            'interestCount': len(ranked(items)), 'growthCount': len(ranked(items, 'growth')),
+            'collection': collection}
 
 
 @app.get('/health')
 def health():
-    return {'status': 'ok', 'dataReady': bool(read_snapshot(db_path()))}
+    return {'status': 'ok', 'dataReady': bool(snapshot())}
 
 
 @app.get('/api/{unimplemented:path}')

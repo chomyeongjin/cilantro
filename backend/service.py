@@ -10,6 +10,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from news import attach_news, fetch_news
 
 ROOT = Path(__file__).resolve().parent
 KST = timezone(timedelta(hours=9))
@@ -22,7 +23,8 @@ def load_env():
     if path.exists():
         for line in path.read_text(encoding='utf-8-sig').splitlines():
             key, sep, value = line.strip().partition('=')
-            if sep and key in ('NAVER_CLIENT_ID', 'NAVER_CLIENT_SECRET'):
+            if sep and key in ('NAVER_CLIENT_ID', 'NAVER_CLIENT_SECRET',
+                               'NAVER_NEWS_CLIENT_ID', 'NAVER_NEWS_CLIENT_SECRET'):
                 os.environ.setdefault(key, value.strip().strip('\"').strip("'"))
 
 
@@ -82,11 +84,16 @@ def fetch_naver(body):
 
 def calculate(raw, catalog, body, fetched_at):
     """No missing-day zero fill, no merging independently normalized requests."""
+    if not isinstance(raw, dict):
+        raise ValueError('NAVER 응답이 JSON 객체가 아닙니다.')
     if any(raw.get(k) != body[k] for k in ('startDate', 'endDate', 'timeUnit')):
         raise ValueError('응답의 조회 조건이 요청과 다릅니다.')
     results = raw.get('results', [])
-    if len(results) != len(catalog):
+    if not isinstance(results, list) or len(results) != len(catalog):
         raise ValueError('일부 주제 응답 누락: 이전 스냅샷을 유지합니다.')
+    if any(not isinstance(r, dict) or not isinstance(r.get('title'), str) or
+           not isinstance(r.get('data'), list) for r in results):
+        raise ValueError('응답 주제 형식이 올바르지 않습니다.')
     by_name = {r['title']: r for r in results}
     if set(by_name) != {c['name'] for c in catalog}:
         raise ValueError('응답 주제 불일치')
@@ -98,6 +105,10 @@ def calculate(raw, catalog, body, fetched_at):
             raise ValueError('응답 검색어 불일치')
         points = {}
         for point in result['data']:
+            if (not isinstance(point, dict) or not isinstance(point.get('period'), str)
+                    or isinstance(point.get('ratio'), bool)
+                    or not isinstance(point.get('ratio'), (int, float))):
+                raise ValueError('시계열 데이터 형식이 올바르지 않습니다.')
             day = date.fromisoformat(point['period'])
             value = float(point['ratio'])
             if day in points or not start <= day <= end or not math.isfinite(value) or not 0 <= value <= 100:
@@ -106,7 +117,10 @@ def calculate(raw, catalog, body, fetched_at):
         if not points:
             raise ValueError('조회 가능한 시계열이 없는 주제: ' + item['name'])
         series[item['id']] = points
-    common_end = min(max(points) for points in series.values())
+    common_days = set.intersection(*(set(points) for points in series.values()))
+    if not common_days:
+        raise ValueError('주제 전체에 공통으로 존재하는 데이터 날짜가 없습니다.')
+    common_end = max(common_days)
     # Do not silently publish an arbitrarily old common date as new data.
     if (end - common_end).days > 3:
         raise ValueError('공통 마지막 데이터가 요청 종료일보다 3일 넘게 지연됐습니다.')
@@ -142,14 +156,12 @@ def calculate(raw, catalog, body, fetched_at):
                     dataThrough=common_end.isoformat(), fetchedAt=fetched_at,
                     keywordSetVersion=version, scoreVersion=SCORE_VERSION,
                     rankingScope=f'설정된 {len(catalog)}개 영양제 주제',
-                    what=f"{item['name']} 관련 검색어 묶음의 관심도입니다. 특정 제품의 판매·효능 순위가 아닙니다.")
-        growth = item['growth7d']
-        item['why'] = (f'최근 7일 평균이 직전 28일 평균 대비 {growth:+.1f}% 변화했습니다.'
-                       if growth is not None else '비교 기간의 데이터 또는 기준 관심도가 부족합니다.')
-        if item['quality'] == 'low_baseline':
-            item['why'] += ' 기준 관심도가 작아 상승률 순위에서 제외했습니다.'
-        item['how']['summary'] = (f"{common_end.isoformat()}까지의 상대 검색 관심도(0~100). "
-                                   '같은 요청·기간의 최고점 기준이며 실제 검색 횟수가 아닙니다.')
+                    what=item.get('description', f"{item['name']} 설명을 준비 중입니다."),
+                    whatSource=item.get('descriptionSource'))
+        item['why'] = '관련 뉴스를 확인 중입니다. 검색 변화의 원인은 아직 확인되지 않았습니다.'
+        item['whySources'] = []
+        item['how']['summary'] = (f"{start.isoformat()} ~ {common_end.isoformat()} · 상대 검색 강도 0–100. "
+                                 f"비교한 {len(catalog)}개 주제의 조회 기간 내 최고점이 100이며 실제 검색 횟수가 아닙니다.")
     return items
 
 
@@ -173,8 +185,13 @@ def read_snapshot(path):
     path = Path(path)
     if not path.exists():
         return None
-    with closing(sqlite3.connect(path)) as connection:
-        row = connection.execute('SELECT items_json FROM snapshots ORDER BY id DESC LIMIT 1').fetchone()
+    # Read-only connections never create a DB during a status request.
+    with closing(sqlite3.connect(path.resolve().as_uri() + '?mode=ro', uri=True)) as connection:
+        if not connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='snapshots'").fetchone():
+            return None
+        # A historical --end collection must not replace the current live snapshot.
+        row = connection.execute("SELECT items_json FROM snapshots ORDER BY "
+                                 "json_extract(items_json, '$[0].dataThrough') DESC, id DESC LIMIT 1").fetchone()
     return json.loads(row[0]) if row else None
 
 
@@ -196,7 +213,7 @@ def ranked(items, sort='interest'):
     return output
 
 
-def collect(end=None, path=None, fetcher=fetch_naver):
+def collect(end=None, path=None, fetcher=fetch_naver, news_fetcher=fetch_news):
     today = datetime.now(KST).date()
     end = end or today - timedelta(days=1)
     if end >= today:
@@ -206,5 +223,9 @@ def collect(end=None, path=None, fetcher=fetch_naver):
     raw = fetcher(body)
     fetched_at = datetime.now(timezone.utc).isoformat()
     items = calculate(raw, catalog, body, fetched_at)
+    if not ranked(items):
+        raise ValueError('최근 7일 데이터가 완전한 주제가 없습니다. 이전 정상 데이터를 유지합니다.')
+    load_env()
+    items = attach_news(items, news_fetcher)
     save_snapshot(path or db_path(), body, raw, items, fetched_at)
     return items

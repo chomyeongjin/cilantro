@@ -1,6 +1,7 @@
 """One-shot collection; use --daily for a foreground 24-hour collection loop."""
 import argparse
 import time
+import sqlite3
 from datetime import date
 from service import collect
 
@@ -16,10 +17,12 @@ if __name__ == '__main__':
         try:
             items = collect(end=args.end)
             print(f"저장 완료: {len(items)}개 주제, 데이터 기준일 {items[0]['dataThrough']}", flush=True)
-        except (ValueError, OSError, KeyError, TypeError) as error:
+        except (ValueError, OSError, KeyError, TypeError, sqlite3.Error) as error:
             print(f'수집 실패: {error}', flush=True)
             if not args.daily:
                 raise SystemExit(1)
+            time.sleep(15 * 60)
+            continue
         if not args.daily:
             break
         time.sleep(24 * 60 * 60)

@@ -14,14 +14,15 @@
      -> [
           {
             id: string,              // stable slug, e.g. "ritual-essential-teens"
-            rank: number,             // 1 = highest search volume
+            rank: number,             // 1 = highest recent 7-day mean interest
             name: string,
             image: string,            // absolute or root-relative image URL
             what: string,             // what the supplement is
-            why: string,              // why it's trending right now
+            why: string,              // recent news context; not proven causality
+            whySources: [{ title: string, url: string, publishedAt: string, publisher: string }],
             how: {
               summary: string,        // e.g. "지난 4개월간 검색량이 꾸준히 상승"
-              chart: [{ label: string, value: number }]   // trend series
+              chart: [{ label: string, value: number | null }] // daily 0–100; null = missing
             }
           },
           ...                          // 6-7 items total

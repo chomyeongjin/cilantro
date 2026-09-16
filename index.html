@@ -43,24 +43,28 @@
 
 <!-- ===== Popup ===== -->
 <div id="overlay" class="overlay" hidden></div>
-<div id="popup" class="popup" hidden>
+<div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-name" hidden>
   <div class="popup-head">
     <h2 id="popup-name">Product</h2>
+    <button id="popup-close" type="button" aria-label="팝업 닫기">×</button>
   </div>
 
   <div class="popup-body">
     <div class="popup-block">
       <h3>What?</h3>
       <p id="popup-what"></p>
+      <div id="popup-what-source" class="popup-source"></div>
     </div>
 
     <div class="popup-block">
       <h3>Why?</h3>
       <p id="popup-why"></p>
+      <ul id="popup-news" class="popup-news"></ul>
     </div>
 
     <div class="popup-block">
       <h3>How?</h3>
+      <p id="popup-interest" class="popup-interest"></p>
       <p id="popup-how-text"></p>
       <div id="popup-chart" class="popup-chart"></div>
     </div>

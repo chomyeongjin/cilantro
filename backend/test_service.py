@@ -27,6 +27,15 @@ class TrendsTests(unittest.TestCase):
         self.assertEqual(item['baselineIndex'],20)
         self.assertEqual(item['growth7d'],100)
         self.assertEqual(len(item['how']['chart']),90)
+        self.assertEqual(item['what'], self.catalog[0]['description'])
+        self.assertTrue(item['whatSource']['url'].startswith('https://'))
+
+    def test_collection_saves_news_with_trend_snapshot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'trends.db'
+            items = collect(self.end, path, lambda body: self.raw, news_fetcher=lambda item: [])
+            self.assertEqual(read_snapshot(path), items)
+            self.assertEqual(items[0]['whyEvidence']['status'], 'no_recent_news')
 
     def test_zero_baseline(self):
         for p in self.raw['results'][0]['data'][:-7]: p['ratio'] = 0
@@ -43,6 +52,48 @@ class TrendsTests(unittest.TestCase):
     def test_common_date(self):
         self.raw['results'][0]['data'].pop()
         self.assertEqual({i['dataThrough'] for i in self.calc()}, {'2026-09-14'})
+
+    def test_common_date_must_exist_in_every_series(self):
+        self.raw['results'][0]['data'].pop()
+        self.raw['results'][1]['data'].pop(-2)
+        self.assertEqual({i['dataThrough'] for i in self.calc()}, {'2026-09-13'})
+
+    def test_malformed_response_rejected(self):
+        for raw in [None, [], {**self.raw, 'results': None}, {**self.raw, 'results': [None] * 5}]:
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                calculate(raw, self.catalog, self.body, 'test')
+        for value in [True, None, '10']:
+            self.raw['results'][0]['data'][0]['ratio'] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.calc()
+
+    def test_unrankable_collection_preserves_previous(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'trends.db'
+            original = self.calc()
+            save_snapshot(path, self.body, self.raw, original, 'test')
+            for result in self.raw['results']:
+                result['data'].pop(-3)
+            with self.assertRaises(ValueError):
+                collect(self.end, path, lambda body: self.raw)
+            self.assertEqual(read_snapshot(path), original)
+
+    def test_historical_collection_does_not_replace_current(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'trends.db'
+            original = self.calc()
+            save_snapshot(path, self.body, self.raw, original, 'test')
+            old = copy.deepcopy(original)
+            for item in old:
+                item['dataThrough'] = '2026-09-01'
+            save_snapshot(path, self.body, self.raw, old, 'test-later')
+            self.assertEqual(read_snapshot(path), original)
+
+    def test_empty_database_is_not_ready(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'empty.db'
+            path.touch()
+            self.assertIsNone(read_snapshot(path))
 
     def test_partial_response_rejected(self):
         self.raw['results'].pop()
