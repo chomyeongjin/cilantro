@@ -180,6 +180,18 @@ ul {
     justify-content: center;
 }
 
+/* Same page-head box (position/padding) as the centered back-link pages,
+   but the title sits left and a secondary action sits right on one row. */
+.page-head--split {
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.page-head--split .page-title {
+    text-align: left;
+    margin: 5px 0 0;
+}
+
 .back-link {
     position: absolute;
     left: 0;

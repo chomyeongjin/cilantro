@@ -5,8 +5,9 @@
    Shares tokens, fonts and sidebar styles with main.css.
    ========================================================================== */
 
+
 .page-title {
-  margin-bottom: 32px;
+  margin-bottom: 3px;
 }
 
 .detail-grid {

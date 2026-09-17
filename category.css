@@ -4,8 +4,9 @@
    immunity, ...). Shares tokens, fonts and sidebar styles with main.css.
    ========================================================================== */
 
+
 #category-title {
-  margin-bottom: 32px;
+  margin-bottom: 3px;
 }
 
 .compare-grid {

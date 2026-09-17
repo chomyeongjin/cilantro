@@ -4,11 +4,11 @@
    Shares tokens, fonts and sidebar styles with main.css.
    ========================================================================== */
 
-.option-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 12px 8px 28px;
+.page-title {
+  font-size: 20px;
+  padding-left: 10px;
 }
+
 
 .see-all {
   font-size: 13px;
@@ -19,13 +19,18 @@
 .option-rows {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
 }
 
 .option-row {
   display: flex;
   align-items: flex-start;
-  gap: 56px;
-  padding: 36px 8px;
+  flex-wrap: nowrap;
+  gap: 65px;
+  padding: 70px 8px;
+  width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -34,9 +39,10 @@
   display: none;
 }
 
+
 .option-item {
   flex: 0 0 auto;
-  width: 112px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +52,7 @@
   font-family: inherit;
   color: inherit;
   cursor: pointer;
-  padding: 6px 4px;
+  padding: 10px 4px;
   border-radius: 10px;
   transition: background 0.15s ease;
 }
@@ -56,8 +62,8 @@
 }
 
 .option-item-img {
-  width: 76px;
-  height: 76px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +87,7 @@
   font-size: 13px;
   text-align: center;
   line-height: 1.4;
+  padding: 12px 0 0;
 }
 
 @media (max-width: 760px) {

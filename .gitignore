@@ -2,5 +2,4 @@
 __pycache__/
 *.pyc
 backend/.env
-backend/data/
-.DS_Store
+backend/data/.DS_Store
