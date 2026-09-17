@@ -11,13 +11,13 @@
    ========================================================================== */
 
 const SLOTS = [
-  { left: 40, top: 130, width: 210, height: 260 },
-  { left: 300, top: 130, width: 170, height: 210 },
-  { left: 520, top: 60, width: 150, height: 190 },
-  { left: 720, top: 130, width: 150, height: 190 },
-  { left: 300, top: 380, width: 150, height: 190 },
-  { left: 520, top: 300, width: 130, height: 170 },
-  { left: 720, top: 360, width: 120, height: 150 }
+  { left: -11, top: 20, width: 230, /*height: 260*/ },
+  { left: 95, top: 50, width: 190, /*height: 210*/ },
+  { left: 22, top: 60, width: 170, /*height: 190*/ },
+  { left: 49, top: 4, width: 130, /*height: 190*/ },
+  { left: 70, top: 44, width: 100, /*height: 190*/ },
+  { left: 55, top: 48, width: 10, /*height: 170*/ },
+  { left: 820, top: 130, width: 120, /*height: 150*/ }
 ];
 
 const scatterEl = document.getElementById("scatter");
@@ -39,10 +39,10 @@ function renderItems(items) {
     const slot = SLOTS[index];
     const btn = document.createElement("button");
     btn.className = "item";
-    btn.style.left = slot.left + "px";
-    btn.style.top = slot.top + "px";
+    btn.style.left = slot.left + "%";
+    btn.style.top = slot.top + "%";
     btn.style.width = slot.width + "px";
-    btn.style.height = slot.height + "px";
+    // btn.style.height = slot.height + "px";
     btn.setAttribute("aria-label", item.name);
 
     const numberEl = document.createElement("span");

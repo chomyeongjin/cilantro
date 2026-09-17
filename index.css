@@ -27,7 +27,7 @@
 }
 
 .item-number {
-  font-size: 13px;
+  font-size: 15px;
   margin-bottom: 6px;
 }
 
@@ -79,7 +79,9 @@
   cursor: default;
 }
 
-body.popup-open { overflow: hidden; }
+body.popup-open {
+  overflow: hidden;
+}
 
 #popup-close {
   border: 0;
@@ -91,20 +93,70 @@ body.popup-open { overflow: hidden; }
   color: var(--ink);
 }
 
-.popup a { text-decoration: underline; text-underline-offset: 3px; }
-.popup a:focus-visible, .popup button:focus-visible, .popup input:focus-visible {
+.popup a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.popup a:focus-visible,
+.popup button:focus-visible,
+.popup input:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
-.popup-source { margin-top: 6px; font-size: 10px; color: var(--muted); }
-.popup-news { margin-top: 10px; }
-.popup-news li { margin-bottom: 10px; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
-.news-date { display: block; margin-top: 3px; font-size: 10px; color: var(--muted); }
-.popup-block .popup-interest { margin-bottom: 6px; font-size: 16px; font-weight: 500; }
-.popup-block .chart-reading { font-size: 12px; font-variant-numeric: tabular-nums; }
-.popup-block .chart-hint { font-size: 10px; color: var(--muted); }
-#chart-date { width: 100%; margin: 8px 0; accent-color: var(--line); cursor: ew-resize; }
-.chart-cursor { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
+
+.popup-source {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.popup-news {
+  margin-top: 10px;
+}
+
+.popup-news li {
+  margin-bottom: 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.news-date {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.popup-block .popup-interest {
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.popup-block .chart-reading {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.popup-block .chart-hint {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+#chart-date {
+  width: 100%;
+  margin: 8px 0;
+  accent-color: var(--line);
+  cursor: ew-resize;
+}
+
+.chart-cursor {
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
 
 .popup[hidden] {
   display: none;
