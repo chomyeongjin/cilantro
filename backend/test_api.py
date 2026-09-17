@@ -86,7 +86,7 @@ class ApiTests(unittest.TestCase):
 
     def test_invalid_sort_and_unimplemented_api(self):
         self.assertEqual(self.client.get('/api/trending?sort=invalid').status_code, 422)
-        self.assertEqual(self.client.get('/api/options').status_code, 404)
+        self.assertEqual(self.client.get('/api/not-implemented').status_code, 404)
 
     def test_original_frontend_paths(self):
         for path in ['/', '/images/pill_sample.png', *('/' + f for f in PUBLIC_FILES)]:

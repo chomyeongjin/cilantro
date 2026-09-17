@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from service import KST, db_path, read_snapshot, ranked
 from scheduler import Collector
+from products.router import router as products_router
 
 
 @asynccontextmanager
@@ -24,7 +25,8 @@ async def lifespan(app):
         collector.stop()
 
 
-app = FastAPI(title='Cilantro NAVER Trends', version='1.1.0', lifespan=lifespan)
+app = FastAPI(title='Cilantro API', version='1.2.0', lifespan=lifespan)
+app.include_router(products_router)
 
 
 @app.middleware('http')
@@ -76,7 +78,7 @@ def health():
 
 @app.get('/api/{unimplemented:path}')
 def not_implemented(unimplemented: str):
-    raise HTTPException(404, '현재 구현 범위는 트렌딩 API입니다.')
+    raise HTTPException(404, 'API 경로를 찾을 수 없습니다.')
 
 
 FRONTEND_ROOT = Path(__file__).resolve().parent.parent
