@@ -1,0 +1,16 @@
+[
+  {
+    "productId": "coupang-000000",
+    "expectedProductName": "discover/list 명령 결과의 product 값을 정확히 복사",
+    "variantNote": "제품명·함량·제형·포장 개수·판매 국가가 같은지 확인한 내용을 입력",
+    "sources": [
+      {
+        "id": "manufacturer-label",
+        "kind": "manufacturer",
+        "url": "https://manufacturer.example/replace-with-exact-product-label",
+        "title": "해당 제품 제조사의 공식 성분표",
+        "text": null
+      }
+    ]
+  }
+]

@@ -3,13 +3,17 @@
 기존 메인 배치를 유지하고 FastAPI와 네이버 데이터랩 트렌딩을 연결했습니다.
 트렌드 팝업의 What/Why/How 내용과 차트, 닫기 동작을 개선했습니다.
 카테고리·제품 화면과 이미지는 그대로 유지했습니다. 해당 화면의
-`/api/options`, `/api/categories/{id}`, `/api/products/{id}`는 아직 미구현(404)입니다.
+`/api/options`, `/api/categories/{id}`, `/api/products/{id}` 백엔드를 구현했습니다.
+사업자 등록이나 쿠팡 키 없이 공식 제품을 등록할 수 있습니다.
+[쿠팡 키 없는 제품 등록·AI 분석 가이드](backend/MANUAL_PRODUCTS_SETUP.md)를 먼저 참고하세요.
+선택적인 쿠팡 상품 검색과 전체 API 설명은 [제품별 설명 설정 가이드](backend/PRODUCTS_SETUP.md)에 있습니다.
+제품과 원문을 등록하고 AI 분석·검토·공개하기 전에는 실제 제품 목록이 비어 있습니다.
 
 ## 실행 (PowerShell, 프로젝트 루트)
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
 # 기존 .env가 있으면 덮어쓰지 않습니다.
 if (!(Test-Path backend\.env)) { Copy-Item backend\.env.example backend\.env }
 notepad backend\.env
@@ -102,7 +106,7 @@ API: `/api/trending?sort=interest`, `/api/trending?sort=growth`,
 키와 로컬 데이터, 가상환경은 `.gitignore`에서 제외합니다.
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pip install -r backend\requirements-dev.txt
 .\.venv\Scripts\python.exe -m unittest discover -s backend -v
 node --check api.js
 node --check index.js

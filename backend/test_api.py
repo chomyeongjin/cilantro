@@ -86,7 +86,15 @@ class ApiTests(unittest.TestCase):
 
     def test_invalid_sort_and_unimplemented_api(self):
         self.assertEqual(self.client.get('/api/trending?sort=invalid').status_code, 422)
-        self.assertEqual(self.client.get('/api/options').status_code, 404)
+        self.assertEqual(self.client.get('/api/not-implemented').status_code, 404)
+
+    def test_recommendation_frontend_contract_survives_merge(self):
+        response = self.client.post('/api/recommendations', json={
+            'age': '50s-60s', 'gender': 'female', 'goals': ['energy-vitality']})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.json()['received'])
+        self.assertEqual(len(response.json()['items']), 3)
+        self.assertEqual(response.json()['items'][0]['id'], 'vitamin-b')
 
     def test_original_frontend_paths(self):
         for path in ['/', '/images/pill_sample.png', *('/' + f for f in PUBLIC_FILES)]:

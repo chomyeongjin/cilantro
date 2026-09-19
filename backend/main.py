@@ -13,6 +13,7 @@ from pydantic import BaseModel
 from recommendations import pick_recommendations
 from service import KST, db_path, read_snapshot, ranked
 from scheduler import Collector
+from products.router import router as products_router
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +30,8 @@ async def lifespan(app):
         collector.stop()
 
 
-app = FastAPI(title='Cilantro NAVER Trends', version='1.1.0', lifespan=lifespan)
+app = FastAPI(title='Cilantro API', version='1.2.0', lifespan=lifespan)
+app.include_router(products_router)
 
 
 @app.middleware('http')
@@ -95,14 +97,14 @@ def health():
 
 @app.get('/api/{unimplemented:path}')
 def not_implemented(unimplemented: str):
-    raise HTTPException(404, '현재 구현 범위는 트렌딩 API입니다.')
+    raise HTTPException(404, 'API 경로를 찾을 수 없습니다.')
 
 
 FRONTEND_ROOT = Path(__file__).resolve().parent.parent
 # The frontend lives in the repository root. Never expose that entire directory:
 # backend credentials, snapshots and Git metadata must remain private.
 PUBLIC_FILES = {
-    'index.html', 'index.css', 'index.js', 'api.js', 'common.js', 'main.css',
+    'index.html', 'index.css', 'index.js', 'api.js', 'common.js',
     'products.html', 'products.css', 'products.js',
     'category.html', 'category.css', 'category.js',
     'detail.html', 'detail.css', 'detail.js',
