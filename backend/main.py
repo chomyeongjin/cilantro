@@ -1,15 +1,20 @@
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Optional
 from contextlib import asynccontextmanager
 import json
+import logging
 import os
 import sqlite3
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from pydantic import BaseModel
+from recommendations import pick_recommendations
 from service import KST, db_path, read_snapshot, ranked
 from scheduler import Collector
+
+logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
@@ -69,6 +74,20 @@ def status():
             'collection': collection}
 
 
+class RecommendationRequest(BaseModel):
+    age: Optional[Literal['kids', 'teens', '20s', '30s-40s', '50s-60s', '70-plus']] = None
+    gender: Optional[Literal['male', 'female', 'non-binary']] = None
+    goals: list[Literal['immunity', 'energy-vitality', 'eye-health',
+                         'digestive-health', 'sleep-stress', 'skin-health']] = []
+
+
+@app.post('/api/recommendations')
+def submit_recommendation(payload: RecommendationRequest):
+    logger.info('Recommendation request: age=%s gender=%s goals=%s',
+                payload.age, payload.gender, payload.goals)
+    return {'received': True, 'items': pick_recommendations(payload.goals)}
+
+
 @app.get('/health')
 def health():
     return {'status': 'ok', 'dataReady': bool(snapshot())}
@@ -87,6 +106,8 @@ PUBLIC_FILES = {
     'products.html', 'products.css', 'products.js',
     'category.html', 'category.css', 'category.js',
     'detail.html', 'detail.css', 'detail.js',
+    'recommend.html', 'recommend.css', 'recommend.js',
+    'result.html', 'result.css', 'result.js',
 }
 app.mount('/images', StaticFiles(directory=FRONTEND_ROOT / 'images'), name='images')
 

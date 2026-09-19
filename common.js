@@ -11,7 +11,9 @@ const PAGE_MENU_MAP = {
   "": "trending",
   "products.html": "products",
   "category.html": "products",
-  "detail.html": "products"
+  "detail.html": "products",
+  "recommend.html": "recommend",
+  "result.html": "recommend"
 };
 
 function initSidebar() {

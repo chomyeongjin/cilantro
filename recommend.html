@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cilantro — 맞춤 영양제 추천</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@400;500&family=Oxanium:wght@600&family=Overpass+Mono:wght@500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="recommend.css">
+</head>
+
+<body>
+
+  <!-- ===== Sidebar ===== -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-mark">C</div>
+
+    <div class="sidebar-panel">
+      <div class="logo">
+        <span class="logo-c">C</span><span class="logo-rest">ilantro</span>
+      </div>
+
+      <ul class="menu-list">
+        <li><a href="index.html" data-menu="trending">트렌드 영양제</a></li>
+        <li><a href="products.html" data-menu="products">제품별 설명</a></li>
+        <li><a href="recommend.html" data-menu="recommend">맞춤 영양제 추천</a></li>
+        <li><a href="#" data-menu="search">성분 검색</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Main ===== -->
+  <main class="page">
+    <div class="page-head page-head--split">
+      <h1 class="page-title">맞춤 영양제 추천</h1>
+    </div>
+
+    <hr class="divider">
+
+    <div class="ask-card">
+      <h2 class="ask-card-title">Find your Supplements</h2>
+
+      <div class="ask-card-body">
+        <fieldset class="ask-group">
+          <legend>age</legend>
+          <div class="ask-options">
+            <label class="ask-option"><input type="radio" name="age" value="kids"><span>kids</span></label>
+            <label class="ask-option"><input type="radio" name="age" value="teens"><span>Teens</span></label>
+            <label class="ask-option"><input type="radio" name="age" value="20s"><span>20s</span></label>
+            <label class="ask-option"><input type="radio" name="age" value="30s-40s"><span>30s & 40s</span></label>
+            <label class="ask-option"><input type="radio" name="age" value="50s-60s"><span>50s & 60s</span></label>
+            <label class="ask-option"><input type="radio" name="age" value="70-plus"><span>70+</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="ask-group">
+          <legend>gender</legend>
+          <div class="ask-options">
+            <label class="ask-option"><input type="radio" name="gender" value="male"><span>male</span></label>
+            <label class="ask-option"><input type="radio" name="gender" value="female"><span>female</span></label>
+            <label class="ask-option"><input type="radio" name="gender" value="non-binary"><span>non-binary</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="ask-group">
+          <legend>wellness goals</legend>
+          <div class="ask-options">
+            <label class="ask-option"><input type="checkbox" name="goal" value="immunity"><span>immunity</span></label>
+            <label class="ask-option"><input type="checkbox" name="goal" value="energy-vitality"><span>energy & vitality</span></label>
+            <label class="ask-option"><input type="checkbox" name="goal" value="eye-health"><span>eye health</span></label>
+            <label class="ask-option"><input type="checkbox" name="goal" value="digestive-health"><span>digestive health</span></label>
+            <label class="ask-option"><input type="checkbox" name="goal" value="sleep-stress"><span>sleep & stress</span></label>
+            <label class="ask-option"><input type="checkbox" name="goal" value="skin-health"><span>skin health</span></label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="ask-submit-row">
+      <button type="button" id="ask-submit" class="ask-submit">submit</button>
+    </div>
+    <p id="ask-status" class="state-message" hidden></p>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="api.js"></script>
+  <script src="recommend.js"></script>
+</body>
+
+</html>

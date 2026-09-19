@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Cilantro — result.css
+   "you might need these..." recommendation results (3 cards). The card
+   border/notches come from images/recommend_resultCard.png; this file only
+   places content inside it. Shares tokens, fonts and sidebar styles with
+   main.css.
+   ========================================================================== */
+
+.page-title {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.back-link {
+  padding-bottom: 15px;
+}
+
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 50px;
+  margin-left: 65px;
+}
+
+.result-grid .state-message {
+  grid-column: 1 / -1;
+}
+
+.result-card {
+  aspect-ratio: 369 / 619;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-image: url("images/recommend_resultCard.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.result-card-top {
+  flex: 0 0 27%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-card-top img {
+  width: 70px;
+  max-width: 50%;
+  max-height: 65%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.08));
+}
+
+.result-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 28px 28px;
+}
+
+.result-name {
+  margin: 7px 0 50px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.result-timing {
+  margin-bottom: 70px;
+}
+
+.result-timing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.timing-track {
+  position: relative;
+  height: 1.5px;
+  background: var(--line);
+}
+
+.timing-dot {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+  transform: translate(-50%, -50%);
+}
+
+.result-desc {
+  margin: 0 0 auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.result-link {
+  align-self: flex-start;
+  margin-top: 20px;
+  font-size: 13px;
+  text-decoration: underline;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
