@@ -26,7 +26,8 @@ function renderGrid(category) {
     brand.textContent = item.brand;
     const productName = document.createElement("div");
     productName.className = "product-name";
-    productName.textContent = item.product;
+    const shortName = item.product.replace(/\s*·\s*\d+\s*(?:캡슐|정)\s*[×xX]\s*\d+\s*개\s*$/, "");
+    productName.textContent = shortName;
     head.appendChild(brand);
     head.appendChild(productName);
     cell.appendChild(head);
@@ -35,7 +36,7 @@ function renderGrid(category) {
     imageWrap.className = "cell-image";
     const img = document.createElement("img");
     img.src = item.image;
-    img.alt = `${item.brand} ${item.product}`;
+    img.alt = `${item.brand} ${shortName}`;
     imageWrap.appendChild(img);
     cell.appendChild(imageWrap);
 
@@ -46,11 +47,15 @@ function renderGrid(category) {
     effectsBlock.className = "effects";
     const effectsLabel = document.createElement("div");
     effectsLabel.className = "sub-label";
-    effectsLabel.textContent = "main effects";
+    effectsLabel.textContent = "주요 성분";
     const ul = document.createElement("ul");
-    (item.mainEffects || []).forEach((text) => {
+    const mainIngredients = item.ingredientFacts?.length
+      ? item.ingredientFacts.slice(0, 3).map(f => f.amountPerServing == null ? f.name
+        : `${f.name} ${f.amountPerServing}${(f.unit || "").replace("mcg", "μg")}`)
+      : (item.mainEffects || []);
+    mainIngredients.forEach((text) => {
       const li = document.createElement("li");
-      li.textContent = `• ${text}`;
+      li.textContent = `• ${text.replace(/\s*\/\s*1회\s*$/, "")}`;
       ul.appendChild(li);
     });
     effectsBlock.appendChild(effectsLabel);
@@ -71,7 +76,13 @@ function renderGrid(category) {
     pillImg.style.width = pillWidth + "px";
     pillVisual.appendChild(pillImg);
     sizeBlock.appendChild(sizeLabel);
-    sizeBlock.appendChild(pillVisual);
+    if (item.pillSizeMm) {
+      sizeBlock.appendChild(pillVisual);
+    } else {
+      const unknown = document.createElement("div");
+      unknown.textContent = "미확인";
+      sizeBlock.appendChild(unknown);
+    }
 
     sub.appendChild(effectsBlock);
     sub.appendChild(sizeBlock);

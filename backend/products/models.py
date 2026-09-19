@@ -51,7 +51,7 @@ class Ingredient(StrictModel):
                      description='Unique substance identifier, not a category ID. Never repeat a key within ingredients.')
     name: str = Field(min_length=1, max_length=150)
     amount: float | None = Field(ge=0, le=1e15)
-    unit: Literal['mg', 'mcg', 'g', 'IU', 'CFU', 'mL'] | None
+    unit: Literal['mg', 'mcg', 'g', 'IU', 'CFU', 'mL', 'mcg RAE', 'mg α-TE', 'mcg DFE', 'mg NE'] | None
     basis: Literal['per_serving', 'per_unit', 'per_daily', 'unknown']
     form: str | None
     # Parents and children must not be summed: e.g. fish oil contains EPA/DHA.

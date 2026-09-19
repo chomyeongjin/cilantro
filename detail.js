@@ -24,6 +24,16 @@ const MIN_BUBBLE = 17;
 const PUSH_DISTANCE = 6;
 const NEIGHBOUR_SHRINK = 0.82;
 
+// Compact labels for the supplied label claims; the full source text stays in the API.
+const EFFECT_KEYWORDS = {
+  "혈중 중성지질·혈행 개선에 도움을 줄 수 있음": ["중성지질 개선", "혈행 개선"],
+  "혈행·중성지질·눈 건조·기억력 개선에 도움을 줄 수 있음": ["혈행 개선", "중성지질 개선", "눈 건조 개선", "기억력 개선"],
+  "혈중 중성지질·혈행 개선, 건조한 눈 개선에 도움을 줄 수 있음": ["중성지질 개선", "혈행 개선", "눈 건조 개선"],
+  "어두운 곳에서 시각 적응, 피부·점막의 기능 유지에 필요": ["시각 적응", "피부·점막 유지"],
+  "칼슘·인 흡수와 이용, 뼈 형성·유지에 필요": ["칼슘·인 흡수", "뼈 건강"],
+  "항산화 작용으로 유해산소로부터 세포 보호에 필요": ["항산화", "세포 보호"]
+};
+
 const titleEl = document.getElementById("detail-title");
 const gridEl = document.getElementById("detail-grid");
 const backLinkEl = document.querySelector(".back-link");
@@ -45,6 +55,7 @@ function buildLayout() {
         <div class="detail-size">
           <div class="sub-label">size</div>
           <img class="detail-pill" id="detail-pill" src="${PILL_IMG}" alt="actual pill size">
+          <span class="example-yellow-pill" id="detail-example-pill" role="img" aria-label="노란 알약 사진 · 크기 예시" hidden></span>
           <div class="size-ruler" id="detail-ruler"></div>
           <div class="size-caption" id="detail-size-caption"></div>
         </div>
@@ -62,33 +73,56 @@ function buildLayout() {
 
     <section class="detail-right">
       <div class="ingredient-diagram" id="ingredient-diagram"></div>
+      <p id="diagram-note" class="diagram-note"></p>
+      <details class="product-details">
+        <summary>성분 함량·섭취 정보 보기</summary>
+        <p id="detail-example-note" class="product-note" hidden></p>
+        <p id="detail-serving"></p>
+        <div id="detail-facts"></div>
+        <ul id="detail-warnings" class="product-warnings"></ul>
+      </details>
     </section>
   `;
 }
 
 function renderProduct(product) {
   titleEl.textContent = product.categoryLabel;
-  document.title = `Cilantro — ${product.brand} ${product.product}`;
+  const shortName = product.product.replace(/\s*·\s*\d+\s*(?:캡슐|정)\s*[×xX]\s*\d+\s*개\s*$/, "");
+  document.title = `Cilantro — ${product.brand} ${shortName}`;
 
   if (backLinkEl && product.categoryId) {
     backLinkEl.href = `category.html?id=${encodeURIComponent(product.categoryId)}`;
   }
 
   document.getElementById("detail-brand").textContent = product.brand;
-  document.getElementById("detail-product-name").textContent = product.product;
+  document.getElementById("detail-product-name").textContent = shortName;
 
   const bottle = document.getElementById("detail-bottle");
   bottle.src = product.image;
-  bottle.alt = `${product.brand} ${product.product}`;
+  bottle.alt = `${product.brand} ${shortName}`;
 
-  const pillWidth = pillWidthFor(product.pillSizeMm);
+  const exampleSize = product.analysisStatus === "example" && !product.pillSizeMm;
+  const pillWidth = pillWidthFor(exampleSize ? 10 : product.pillSizeMm);
+  document.getElementById("detail-example-pill").hidden = !exampleSize;
+  document.getElementById("detail-example-pill").style.width = pillWidth + "px";
+  if (product.pillImage && product.pillImage.startsWith("/images/")) {
+    const photo = document.createElement("img");
+    photo.src = product.pillImage;
+    photo.alt = "";
+    document.getElementById("detail-example-pill").appendChild(photo);
+    document.getElementById("detail-example-pill").classList.add("has-photo");
+    document.getElementById("detail-pill").src = product.pillImage;
+  }
   document.getElementById("detail-pill").style.width = pillWidth + "px";
   document.getElementById("detail-ruler").style.width = pillWidth + "px";
   document.getElementById("detail-size-caption").textContent = product.pillSizeMm
     ? `${product.pillSizeMm}mm`
-    : "";
+    : exampleSize ? "1cm (예시)" : "미확인";
+  document.getElementById("detail-pill").hidden = !product.pillSizeMm;
+  document.getElementById("detail-ruler").hidden = !product.pillSizeMm && !exampleSize;
 
   const forList = document.getElementById("detail-for-list");
+  forList.closest(".detail-for").hidden = !(product.for || []).length;
   (product.for || []).forEach((text) => {
     const li = document.createElement("li");
     li.textContent = text;
@@ -98,18 +132,64 @@ function renderProduct(product) {
   const buyLink = document.getElementById("detail-buy-link");
   buyLink.href = product.buyLink || "#";
 
-  renderDiagram(product.ingredients || []);
+  const note = document.getElementById("detail-example-note");
+  note.hidden = !product.exampleNote;
+  note.textContent = product.exampleNote || "";
+  document.getElementById("detail-serving").textContent = product.serving?.value || "";
+  const facts = document.getElementById("detail-facts");
+  const heading = document.createElement("h2");
+  heading.textContent = "1회 섭취량 기준 성분";
+  facts.appendChild(heading);
+  const list = document.createElement("dl");
+  list.className = "ingredient-facts";
+  (product.ingredientFacts || []).forEach((fact) => {
+    const name = document.createElement("dt");
+    name.textContent = fact.name;
+    const amount = document.createElement("dd");
+    amount.textContent = fact.amountPerServing == null ? "함량 미확인"
+      : `${fact.amountPerServing.toLocaleString()} ${(fact.unit || "").replace("mcg", "μg")}`;
+    list.append(name, amount);
+  });
+  facts.appendChild(list);
+  const warnings = document.getElementById("detail-warnings");
+  (product.warnings || []).forEach((warning) => {
+    const li = document.createElement("li");
+    li.textContent = warning.value;
+    warnings.appendChild(li);
+  });
+  (product.unknowns || []).forEach((text) => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    warnings.appendChild(li);
+  });
+  if (product.ingredients?.length) {
+    renderDiagram(product.ingredients);
+    document.getElementById("diagram-note").textContent = "전체 제형 중량 기준 · 작은 원은 가독성을 위해 확대 표시";
+  } else {
+    const bubbles = (product.ingredientFacts || []).filter(f => !f.partOf).map(f => ({
+      id: f.key, name: f.name,
+      amount: f.amountPerServing == null ? "함량 미확인"
+        : `${f.amountPerServing.toLocaleString()} ${(f.unit || "").replace("mcg", "μg")}`,
+      weight: f.amountMgPerServing ?? 0,
+      incomparable: f.amountMgPerServing == null,
+      effects: (product.claims || []).filter(c => c.ingredientKeys.includes(f.key)).map(c => c.text),
+      sideEffects: []
+    })).sort((a, b) => b.weight - a.weight);
+    renderDiagram(bubbles);
+    document.getElementById("diagram-note").textContent =
+      "mg 환산 가능한 성분의 상대 함량을 표시합니다. 작은 원은 확대 표시하며 전체 구성비는 아닙니다. 점선 원은 단위가 달라 크기 비교에서 제외한 성분입니다.";
+  }
 }
 
 function layoutIngredients(ingredients) {
-  const maxPct = ingredients[0] ? ingredients[0].pct : 1;
+  const maxPct = Math.max(...ingredients.map(ing => ing.weight ?? ing.pct ?? 0), 0) || 1;
 
   const placed = [];
 
   ingredients.forEach((ing, index) => {
     const size = Math.max(
       MIN_BUBBLE,
-      Math.min(MAX_BUBBLE, Math.sqrt(ing.pct / maxPct) * MAX_BUBBLE)
+      Math.min(MAX_BUBBLE, Math.sqrt((ing.weight ?? ing.pct ?? 0) / maxPct) * MAX_BUBBLE)
     );
 
     let cx, cy;
@@ -147,6 +227,7 @@ function layoutIngredients(ingredients) {
       id: ing.id,
       name: ing.name,
       amount: ing.amount,
+      incomparable: ing.incomparable,
       effects: ing.effects || [],
       sideEffects: ing.sideEffects || [],
       color: BUBBLE_COLORS[index % BUBBLE_COLORS.length],
@@ -195,6 +276,8 @@ function renderDiagram(ingredients) {
     const id = data.id || `dot-${i}`;
     const bubble = document.createElement("div");
     bubble.className = "bubble" + (data.interactive ? " is-interactive" : "");
+    if (data.incomparable) bubble.classList.add("is-incomparable");
+    if (data.interactive) bubble.title = `${data.name} ${data.amount}${data.incomparable ? " · 크기 비교 제외" : ""}`;
     applyGeometry(bubble, data.cx, data.cy, data.size);
 
     const fill = document.createElement("div");
@@ -220,14 +303,20 @@ function renderDiagram(ingredients) {
 
       const detail = document.createElement("div");
       detail.className = "bubble-detail";
-      detail.appendChild(buildDetailColumn("effects", data.effects));
-      detail.appendChild(buildDetailColumn("side effects", data.sideEffects));
+      const effects = data.effects.flatMap(text => EFFECT_KEYWORDS[text] || [text]);
+      detail.appendChild(buildDetailColumn("effects", effects.length ? effects : ["미확인"]));
+      detail.appendChild(buildDetailColumn("side effects", data.sideEffects.length ? data.sideEffects : ["미확인"]));
       content.appendChild(detail);
 
       bubble.appendChild(content);
 
       bubble.addEventListener("mouseenter", () => activate(id));
       bubble.addEventListener("mouseleave", () => deactivate());
+      bubble.tabIndex = 0;
+      bubble.setAttribute("role", "button");
+      bubble.setAttribute("aria-label", `${data.name} 성분 정보`);
+      bubble.addEventListener("focus", () => activate(id));
+      bubble.addEventListener("blur", () => deactivate());
     }
 
     diagramEl.appendChild(bubble);

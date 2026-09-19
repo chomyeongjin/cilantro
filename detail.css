@@ -12,7 +12,7 @@
 
 .detail-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 500px) 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
   max-width: 1300px;
   margin: 44px auto 0;
@@ -50,7 +50,7 @@
 }
 
 .detail-bottle {
-  width: 248px;
+  width: min(65%, 248px);
   height: auto;
   object-fit: contain;
 }
@@ -79,6 +79,20 @@
   margin-top: 8px;
   border-bottom: 1.5px dashed #c0392b;
   position: relative;
+}
+
+.example-yellow-pill.has-photo {
+  position: relative;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.example-yellow-pill.has-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .size-ruler::before,
@@ -136,7 +150,9 @@
 
 .detail-right {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
   justify-content: center;
   margin-top: 70px;
 }
@@ -244,7 +260,48 @@
   line-height: 1.5;
 }
 
-@media (max-width: 900px) {
+.detail-grid [hidden] { display: none !important; }
+.bubble.is-incomparable { outline: 1px dashed var(--muted); border-radius: 50%; }
+.diagram-note { margin: 56px 0 18px; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.product-details { font-size: 12px; }
+.product-details summary { cursor: pointer; text-decoration: underline; }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .detail-grid { gap: 36px; }
+  .detail-images { gap: 16px; }
+  .detail-head { font-size: 18px; }
+  .bubble-title { font-size: 12px; }
+}
+
+.example-yellow-pill {
+  display: block;
+  height: 23px;
+  border-radius: 50px;
+  border: 1px solid #d8ad22;
+  background: linear-gradient(170deg, #fffbd0 0%, #ffec6a 24%, #f4d638 60%, #e7b920 100%);
+  box-shadow: inset 0 2px 3px #fff9c8, inset 0 -2px 3px #d6a61f66, 0 3px 5px #392b201a;
+}
+
+.product-note {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+.ingredient-facts {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.ingredient-facts dd { margin: 0; }
+.product-warnings { margin-top: 24px; line-height: 1.8; }
+.product-warnings li { margin-bottom: 8px; }
+
+@media (max-width: 700px) {
   .detail-grid {
     grid-template-columns: 1fr;
   }
@@ -252,4 +309,5 @@
   .detail-left {
     max-width: 100%;
   }
+  .detail-right { margin-top: 0; }
 }

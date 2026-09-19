@@ -104,7 +104,7 @@ FRONTEND_ROOT = Path(__file__).resolve().parent.parent
 # The frontend lives in the repository root. Never expose that entire directory:
 # backend credentials, snapshots and Git metadata must remain private.
 PUBLIC_FILES = {
-    'index.html', 'index.css', 'index.js', 'api.js', 'common.js',
+    'index.html', 'index.css', 'index.js', 'api.js', 'common.js', 'main.css',
     'products.html', 'products.css', 'products.js',
     'category.html', 'category.css', 'category.js',
     'detail.html', 'detail.css', 'detail.js',
