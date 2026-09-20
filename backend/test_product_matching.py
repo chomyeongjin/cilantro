@@ -43,7 +43,7 @@ class MatchingTests(unittest.TestCase):
             self.assertNotIn('kids',v['ageIds'])
             self.assertNotIn('teens',v['ageIds'])
             self.assertNotIn('sleep-stress',v['effectIds'])
-        self.assertIn('현재 50종',category_notice('kids'))
+        self.assertIn('대상 연령·용량 검토',category_notice('kids'))
 
     def test_adult_label_and_high_dose(self):
         self.assertIn('20s',view(record('m3'))['ageIds'])

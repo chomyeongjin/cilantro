@@ -1,0 +1,885 @@
+[
+  {
+    "key": "now-lutein-10",
+    "reviewKey": "now10",
+    "brand": "나우푸드",
+    "name": "루테인 10mg",
+    "title": "Lutein 10 mg Softgels",
+    "url": "https://www.nowfoods.com/products/supplements/lutein-10-mg-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497435",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2023-07/3058_mainimage.png?itok=y649-dtU",
+    "imageVerified": true,
+    "serving": "Serving Size:  | 1 Softgel",
+    "facts": "Serving Size:  | 1 Softgel\nServings Per Container:  | 60\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nLutein (Free Lutein)\n(from Lutein Esters)\n(from Marigold Flowers Extract) (Tagetes erecta)  | 10 mg  | **\n**Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        10,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Supports Eye Health",
+        "ingredientKeys": [
+          "lutein"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "now-lutein-20",
+    "reviewKey": "now20",
+    "brand": "나우푸드",
+    "name": "더블 스트렝스 루테인 20mg",
+    "title": "Lutein, Double Strength 20 mg Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/lutein-double-strength-20-mg-veg-capsules",
+    "category": "lutein",
+    "retail": "https://pages.coupang.com/m/93823",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2023-10/3069_mainimage.png?itok=tVG7cdRv",
+    "imageVerified": true,
+    "serving": "Serving Size:  | 1 Veg Capsule",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 90\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nLutein (Free Lutein)\n(from Lutein Esters)\n(from Marigold Flowers Extract) (Tagetes erecta)  | 20 mg  | *\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Supports Eye Health",
+        "ingredientKeys": [
+          "lutein"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "now-lutein-zeaxanthin-25-5",
+    "reviewKey": "now25",
+    "brand": "나우푸드",
+    "name": "루테인 25mg & 지아잔틴 5mg",
+    "title": "Lutein & Zeaxanthin Softgels",
+    "url": "https://www.nowfoods.com/products/supplements/lutein-zeaxanthin-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/search?q=%EB%82%98%EC%9A%B0%ED%91%B8%EB%93%9C%EB%A3%A8%ED%85%8C%EC%9D%B8",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-01/3064_v6.png?itok=PzBYGcWO",
+    "imageVerified": true,
+    "serving": "Serving Size:  | 1 Softgel",
+    "facts": "Serving Size:  | 1 Softgel\nServings Per Container:  | 60\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nLutein (from Marigold Flowers Extract)\n(Tagetes erecta) (Lutemax 2020)  | 25 mg  | **\nZeaxanthin (from Marigold Flowers Extract)\n(Tagetes erecta) (Lutemax 2020)  | 5 mg  | **\n**Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        25,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        5,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Blue Light Protection & Macular Care",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "solgar-lutein-20",
+    "reviewKey": "sol20",
+    "brand": "솔가",
+    "name": "루테인 20mg",
+    "title": "Solgar Lutein 20 mg Softgels",
+    "url": "https://www.solgar.com/products/solgar-lutein-20-mg-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/1302117451?itemId=20603807344&vendorItemId=3267621580",
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2025-05/SO_016750_F.png",
+    "imageVerified": false,
+    "serving": "Serving Size: 1 Softgel",
+    "facts": "Serving Size: 1 Softgel\nAmount Per Serving  | %DV\nLutein (FloraGLO®) (supplies zeaxanthin, 1 mg)  | 20 mg**  |\n^{*}Daily Value (DV) not established",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        1,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "국화과 알레르기 주의",
+        "quote": "allergic to daisy-like flowers"
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "nutritionally supports the health of your eyes",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "solgar-lutein-40",
+    "reviewKey": "sol40",
+    "brand": "솔가",
+    "name": "루테인 40mg",
+    "title": "Lutein 40MG Softgels",
+    "url": "https://www.solgar.com/products/lutein-40mg-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497435",
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2025-05/SO_016774_F.png",
+    "imageVerified": false,
+    "serving": "Serving Size: 1 Softgel",
+    "facts": "Serving Size: 1 Softgel\nAmount Per Serving  | %DV\nLutein (FloraGLO®) (supplies zeaxanthin, 2 mg)  | 40 mg**  |\n^{*}Daily Value (DV) not established",
+    "ingredients": [
+      [
+        "lutein",
+        40,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        2,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "support eye health",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "doctorsbest-lutein-20-1",
+    "reviewKey": "db20",
+    "brand": "닥터스베스트",
+    "name": "루테인 20mg + 지아잔틴 1mg",
+    "title": "Doctor's Best Lutein, 20 mg, 60 Softgels",
+    "url": "https://www.doctorsbest.com/products/doctor-s-best-lutein-20-mg-60-softgels-11685",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/8289734874",
+    "image": "https://www.doctorsbest.com/cdn/shop/files/drb-00192-main_e1932238-6a92-4b18-ac21-e1d89cb5023c.jpg?v=1729008211&width=416",
+    "imageVerified": true,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\nServings Per Container 60\n | Amount Per Serving  | % Daily Value\nLutein (from marigold flower ext.) (Tagetes erecta)  | 20 mg  | †\nZeaxanthin (from marigold flower ext.) (Tagetes erecta)  | 1 mg  | †\n\n† Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        1,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "supporting both vision and overall health",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "doctorsbest-lutemax-20-4",
+    "reviewKey": "dbLut",
+    "brand": "닥터스베스트",
+    "name": "루테맥스 2020 루테인 20mg",
+    "title": "Doctor's Best Lutein with Lutemax 2020, 20 mg, 60 Softgels",
+    "url": "https://www.doctorsbest.com/products/doctor-s-best-lutein-lutemax-2020-60-softgels-63505",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/8203823989?itemId=24001097664&vendorItemId=92120728393",
+    "image": "https://www.doctorsbest.com/cdn/shop/files/753950003699-BFP-V6-030424.png?v=1744212687&width=416",
+    "imageVerified": true,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\nServings Per Container 60\n\n   | Amount Per Serving  | % Daily Value\nLutein (from Lutemax 2020 marigold flower ext., (Tagetes erecta))  | 20 mg  | †\nZeaxanthin (from Lutemax 2020 marigold flower ext., (Tagetes erecta))  | 4 mg  | †\n\n† Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        4,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Supports Eye Health & Performance",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "doctorsbest-natural-vision",
+    "reviewKey": "dbVision",
+    "brand": "닥터스베스트",
+    "name": "내추럴 비전 인핸서",
+    "title": "Doctor's Best Natural Vision Enhancers, 60 Softgels",
+    "url": "https://www.doctorsbest.com/products/doctor-s-best-natural-vision-enhancers-60-softgels-53651",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/search?q=%EB%8B%A5%ED%84%B0%EC%A6%88%EB%B2%A0%EC%8A%A4%ED%8A%B8%EB%A3%A8%ED%85%8C%EC%9D%B8",
+    "image": "https://www.doctorsbest.com/cdn/shop/files/753950003118-BFP-V7-041524.png?v=1768235415&width=416",
+    "imageVerified": false,
+    "serving": "Serving Size 2 Softgels",
+    "facts": "Serving Size 2 Softgels\nServings Per Container 30\n |\nAmount Per Serving\n |\n% Daily Value\nCalories  | 5  |\nTotal Fat  | 1 g  | 1 %**\nCholesterol  | <5 mg  | 1 %**\nFish Oil Concentrate  | 500 mg  | †\nTotal Omega-3 Fatty Acids as TG  | 285 mg  | †\nDHA (Docosahexaenoic Acid)  | 200 mg  | †\nEPA (Eicosapentaenoic Acid)  | 45 mg  | †\nLutein (from Lutemax 2020 marigold flower ext., (Tagetes erecta))  | 20mg  | †\nZeaxanthin (from Lutemax 2020 marigold flower ext., (Tagetes erecta))  | 4 mg  |\n\nDaily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        4,
+        "mg"
+      ],
+      [
+        "fish_oil",
+        500,
+        "mg"
+      ],
+      [
+        "omega3_total",
+        285,
+        "mg",
+        "fish_oil"
+      ],
+      [
+        "dha",
+        200,
+        "mg",
+        "omega3_total"
+      ],
+      [
+        "epa",
+        45,
+        "mg",
+        "omega3_total"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "생선 함유",
+        "quote": "Contains Fish"
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "supporting macula health",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "swanson-synergistic-eye",
+    "reviewKey": "swSyn",
+    "brand": "스완슨",
+    "name": "사이너지스틱 아이 헬스",
+    "title": "Synergistic Eye Health - Lutein & Zeaxanthin",
+    "url": "https://www.swansonvitamins.com/p/swanson-ultra-synergistic-eye-formula-lutein-zeaxanthin-60-sgels",
+    "category": "lutein",
+    "retail": "https://pages.coupang.com/m/85032",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/e2962eff-2186-45d6-835b-73a100b6543f_large_6fdebb55-89d2-4bc9-8c9e-7d68b6a1d1a2.jpg?v=1778602632&width=1600",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Vegan Softgel",
+    "facts": "Serving Size 1 Vegan Softgel\n\nServings Per Container 60\n\nAmount Per Serving  | % Daily Value\n--- | ---\nLutein (from Lutemax Free Lutein marigold flower extract) 20 mg  | *\nOmniXan Zeaxanthin (from paprika) (Capsicum annuum) (fruit) 2 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        2,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "help maintain healthy eyes",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "swanson-lutein-40",
+    "reviewKey": "sw40",
+    "brand": "스완슨",
+    "name": "루테인 40mg",
+    "title": "Lutein",
+    "url": "https://www.swansonvitamins.com/p/swanson-ultra-lutein-40-mg-60-sgels-SWU981",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/77760925",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/843e86e4-3e5f-4da0-8260-b9e42dcf2d93_large_d1d12de2-5136-4188-92d5-59bf45135e57.jpg?v=1769003208&width=1600",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\nServings Per Container 60\n\nAmount Per Serving  | % Daily Value\n--- | ---\nLutein (from marigold flower extract) 40 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        40,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      },
+      {
+        "text": "대두 함유",
+        "quote": "Contains soy."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Promotes a healthy and strong retina and macula",
+        "ingredientKeys": [
+          "lutein"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "swanson-lutein-esters-20",
+    "reviewKey": "swEst",
+    "brand": "스완슨",
+    "name": "루테인 에스테르 20mg",
+    "title": "Lutein Esters",
+    "url": "https://www.swansonvitamins.com/p/swanson-premium-lutein-20-mg-60-sgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/3239558",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/f40b3a94-d215-4004-abbd-6fcbdb05f6d7_large_253e5462-a8b5-4066-a4ba-3534a1ff3714.jpg?v=1769000931&width=1600",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\nServings Per Container 60\n\nAmount Per Serving  | % Daily Value\n--- | ---\nLutein Esters (from marigold flower extract) 20 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein_esters",
+        20,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "support healthy vision",
+        "ingredientKeys": [
+          "lutein_esters"
+        ]
+      }
+    ],
+    "potencyNote": "표시 함량은 루테인 에스테르 중량입니다. 유리 루테인 환산량은 미확인입니다."
+  },
+  {
+    "key": "swanson-lutein-bilberry",
+    "reviewKey": "swBil",
+    "brand": "스완슨",
+    "name": "루테인 & 빌베리",
+    "title": "Lutein & Bilberry",
+    "url": "https://www.swansonvitamins.com/p/swanson-ultra-standardized-lutein-bilberry-120-sgels",
+    "category": "lutein",
+    "retail": "https://pages.coupang.com/m/141645",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/8c052f11-6468-4eda-8c3d-a1705a984349_large_4bcd4ab8-88ae-4f5c-8586-44d6785103d7.jpg?v=1769003176&width=1600",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\nServings Per Container 120\n\nAmount Per Serving  | % Daily Value\n--- | ---\nBilberry Extract (Vaccinium myrtillus) (fruit) (standardized to minimum 25% anthocyanins) 20 mg  | *\nLutein [from marigold flower extract (Tagetes erecta)] 6 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        6,
+        "mg"
+      ],
+      [
+        "bilberry_extract",
+        20,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      },
+      {
+        "text": "대두 함유",
+        "quote": "Contains soy."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Supports healthy eyes",
+        "ingredientKeys": [
+          "lutein"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "swanson-lutein-esters-bilberry",
+    "reviewKey": "swEstBil",
+    "brand": "스완슨",
+    "name": "루테인 에스테르 & 빌베리",
+    "title": "Lutein Esters & Bilberry",
+    "url": "https://www.swansonvitamins.com/p/swanson-premium-lutein-bilberry-6-20-mg-120-sgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/8204681910",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/49d2b187-63a6-4f13-96fb-01ed3e2a964c_large_e8bc9765-89bc-46cd-80ef-723858c63f08.jpg?v=1769001150&width=1600",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\nServings Per Container 120\n\nAmount Per Serving  | % Daily Value\n--- | ---\nBilberry Extract (Vaccinium myrtillus) (fruit) (standardized to 25% anthocyanins) 20 mg  | *\nLutein Esters (from marigold flower extract) 6 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein_esters",
+        6,
+        "mg"
+      ],
+      [
+        "bilberry_extract",
+        20,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Promotes healthy eyesight",
+        "ingredientKeys": [
+          "lutein_esters"
+        ]
+      }
+    ],
+    "potencyNote": "표시 함량은 루테인 에스테르 중량입니다. 유리 루테인 환산량은 미확인입니다."
+  },
+  {
+    "key": "swanson-lutein-20",
+    "reviewKey": "sw20",
+    "brand": "스완슨",
+    "name": "하이어 스트렝스 루테인 20mg",
+    "title": "Lutein - Higher Strength",
+    "url": "https://www.swansonvitamins.com/p/swanson-ultra-lutein-20-mg-120-sgels-swu994",
+    "category": "lutein",
+    "retail": "https://pages.coupang.com/m/85032",
+    "image": "https://www.swansonvitamins.com/cdn/shop/files/7ef40e9b-c60b-4ab4-8c4a-e59c85d5c39a_large_5ae8c01c-c4ad-4bee-bc03-28d57f152538.jpg?v=1769003397&width=1600",
+    "imageVerified": true,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\nServings Per Container 120\n\nAmount Per Serving  | % Daily Value\n--- | ---\nLutein [from marigold flower (Tagetes erecta)] 20 mg  | *\n\n*Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ]
+    ],
+    "warnings": [
+      {
+        "text": "성인용",
+        "quote": "For adults only."
+      },
+      {
+        "text": "대두 함유",
+        "quote": "Contains soy."
+      },
+      {
+        "text": "아황산염 함유",
+        "quote": "Contains sulfites."
+      }
+    ],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Promote healthy vision",
+        "ingredientKeys": [
+          "lutein"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "lifeextension-macuguard-saffron",
+    "reviewKey": "leSaff",
+    "brand": "라이프익스텐션",
+    "name": "마쿠가드 사프란",
+    "title": "MacuGuard® Ocular Support with Saffron",
+    "url": "https://www.lifeextension.com/vitamins-supplements/item01992/macuguard-ocular-support-with-saffron",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/9272436754",
+    "image": "https://www.lifeextension.com/-/media/lifeextension/products/large/01992.png?h=400&hash=E55AAB3DE7C9A397D73AD40810C0FB4F&la=en&rev=66e46c206a104877bc7fe0df031f7935",
+    "imageVerified": false,
+    "serving": "Serving Size 1 softgel",
+    "facts": "Serving Size 1 softgel\nAmount Per Serving\nMacuGuard® proprietary blend 208 mg\nMarigold extract (Tagetes erecta) (flower) [providing 10 mg lutein, 4 mg meso -zeaxanthin & zeaxanthin], phospholipids, mixed carotenoids [providing 1.24 mg α-carotene]\nSaffron extract (stigma) 20 mg",
+    "ingredients": [
+      [
+        "lutein",
+        10,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "zeaxanthin_isomers",
+        4,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "saffron_extract",
+        20,
+        "mg"
+      ],
+      [
+        "alpha_carotene",
+        1.24,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "macuguard_blend",
+        208,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Contains lutein, meso-zeaxanthin & zeaxanthin for eye health support",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin_isomers"
+        ]
+      }
+    ],
+    "potencyNote": "지아잔틴과 메소지아잔틴의 합계 함량입니다. 이성질체별 함량은 미확인입니다."
+  },
+  {
+    "key": "lifeextension-macuguard-saffron-astaxanthin",
+    "reviewKey": "leAsta",
+    "brand": "라이프익스텐션",
+    "name": "마쿠가드 사프란 & 아스타잔틴",
+    "title": "MacuGuard® Ocular Support with Saffron & Astaxanthin",
+    "url": "https://www.lifeextension.com/vitamins-supplements/item01993/macuguard-ocular-support-with-saffron-astaxanthin",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/6223058",
+    "image": "https://www.lifeextension.com/-/media/lifeextension/products/large/01993.png?h=400&hash=7A304557D46059D7F85275065FC1058E&la=en&rev=8be250a299ee41fb86515215024c4192",
+    "imageVerified": true,
+    "serving": "Serving Size 1 softgel",
+    "facts": "Serving Size 1 softgel\nAmount Per Serving\nMacuGuard® proprietary blend 208 mg\nMarigold extract (Tagetes erecta ) (flower) [providing 10 mg lutein, 4 mg meso -zeaxanthin & zeaxanthin], phospholipids, mixed carotenoids [providing 1.24 mg α-carotene]\nSaffron extract (stigma) 20 mg\nNatural astaxanthin [from CO_{2} extract of Haematococcus pluvialis algae] 6 mg",
+    "ingredients": [
+      [
+        "lutein",
+        10,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "zeaxanthin_isomers",
+        4,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "astaxanthin",
+        6,
+        "mg"
+      ],
+      [
+        "saffron_extract",
+        20,
+        "mg"
+      ],
+      [
+        "alpha_carotene",
+        1.24,
+        "mg",
+        "macuguard_blend"
+      ],
+      [
+        "macuguard_blend",
+        208,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Nutrients like lutein and astaxanthin benefit eye health",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin_isomers"
+        ]
+      }
+    ],
+    "potencyNote": "지아잔틴과 메소지아잔틴의 합계 함량입니다. 이성질체별 함량은 미확인입니다."
+  },
+  {
+    "key": "jarrow-lutein-20-4",
+    "reviewKey": "jarrow",
+    "brand": "재로우",
+    "name": "루테인 20mg + 지아잔틴 4mg",
+    "title": "Lutein",
+    "url": "https://jarrow.com/products/lutein-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/6291340472?itemId=11392085555&vendorItemId=71528884576",
+    "image": "https://jarrow.com/cdn/shop/files/27018456-e267-460a-8a99-9cbe36640a28.jpg?v=1786986024&width=1920",
+    "imageVerified": false,
+    "serving": "Serving Size: 1 Softgel",
+    "facts": "Serving Size: 1 Softgel\n\nAmount Per Serving\n\n% Daily Value\n\nLutein (Marigold Petal Extract) (Tagetes erecta)\n\n20 mg\n\n†\nZeaxanthin (Marigold Petal Extract) (Tagetes erecta)\n\n4 mg\n\n†\n\n† Daily Value (DV) not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        4,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Lutein supports eye health and visual function",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "naturesbounty-lutein-20",
+    "reviewKey": "nb20",
+    "brand": "네이처스바운티",
+    "name": "루테인 20mg",
+    "title": "Lutein - 40 Softgels",
+    "url": "https://naturesbounty.com/products/lutein-20-mg-40-rapid-release-softgels",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497435",
+    "image": "https://naturesbounty.com/cdn/shop/products/084902.png?v=1667506673&width=750",
+    "imageVerified": true,
+    "serving": "Serving size 1 Softgel",
+    "facts": "Serving size 1 Softgel\n\nServings Per Container 40\n\nAmount Per Serving\n\n%Daily Value\n\nLutein (Contains Zeaxanthin, 800 mcg)\n\n20 mg\n\n**\n**Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        800,
+        "mcg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "Lutein supports eye health for adults",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "naturalfactors-lutein-20",
+    "reviewKey": "nf20",
+    "brand": "내추럴팩터스",
+    "name": "루테인 20mg + 지아잔틴 3.5mg",
+    "title": "Lutein 20 mg",
+    "url": "https://naturalfactors.com/products/lutein-zeaxanthin-20-mg",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/vp/products/7893680312?itemId=24213847374&vendorItemId=91231211814",
+    "image": "https://naturalfactors.com/cdn/shop/files/lutein-20-mg-1031u-7240167.png?v=1783969809&width=1946",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\n | Amount Per Serving  | % Daily Value\nLuteinRich^{®} Lutein (Tagetes erecta)(from marigold flower extract)  | 20 mg  | **\nZeaxanthin (Tagetes erecta)(from marigold flower extract)  | 3.5 mg  | **\n** Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        20,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        3.5,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "support the health of the lens and retina",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  },
+  {
+    "key": "naturalfactors-lutein-40",
+    "reviewKey": "nf40",
+    "brand": "내추럴팩터스",
+    "name": "루테인 40mg + 지아잔틴 7mg",
+    "title": "Lutein 40 mg",
+    "url": "https://naturalfactors.com/products/lutein-zeaxanthin-40-mg",
+    "category": "lutein",
+    "retail": "https://www.coupang.com/np/search?channel=user&q=natural+factors",
+    "image": "https://naturalfactors.com/cdn/shop/files/lutein-40-mg-1034u-3453555.png?v=1783969808&width=1946",
+    "imageVerified": false,
+    "serving": "Serving Size 1 Softgel",
+    "facts": "Serving Size 1 Softgel\n\n | Amount Per Serving  | % Daily Value\nLuteinRich^{®} Lutein (Tagetes erecta) (from marigold flower extract)  | 40 mg  | ^{**}\nZeaxanthin (Tagetes erecta) (from marigold flower extract)  | 7 mg  | ^{** }\n** Daily Value not established.",
+    "ingredients": [
+      [
+        "lutein",
+        40,
+        "mg"
+      ],
+      [
+        "zeaxanthin",
+        7,
+        "mg"
+      ]
+    ],
+    "warnings": [],
+    "claims": [
+      {
+        "text": "눈 건강",
+        "effectId": "eye-health",
+        "quote": "support the health of the lens and retina",
+        "ingredientKeys": [
+          "lutein",
+          "zeaxanthin"
+        ]
+      }
+    ],
+    "potencyNote": null
+  }
+]
