@@ -31,6 +31,8 @@
 .item-number {
   font-size: 15px;
   margin-bottom: 6px;
+  display: block;
+  text-align: left;
 }
 
 .item-image-box {

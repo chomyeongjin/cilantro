@@ -20,7 +20,8 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 48px;
-  margin-top: 50px;
+  zoom: 0.93;
+  margin-top: 25px;
   margin-left: 0;
 }
 
@@ -93,7 +94,7 @@
 .result-summary {
   font-size: 13px;
   line-height: 1.7;
-  margin: 20px 0 28px;
+  margin: 25px 0 28px;
 }
 
 .result-card details {
