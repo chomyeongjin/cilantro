@@ -131,7 +131,6 @@ a.compare-cell:hover {
 }
 
 .selection-notice {
-  max-width: 1000px;
   line-height: 1.7;
   font-size: 13px;
   color: #665748;
@@ -168,7 +167,7 @@ a.compare-cell:hover {
 }
 
 .age-guidance h2 {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .age-guidance h3 {
