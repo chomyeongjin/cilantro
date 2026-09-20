@@ -75,6 +75,14 @@ function renderRows(options) {
       const text = document.createElement("span");
       text.textContent = option.label;
       btn.appendChild(text);
+      if (Number.isInteger(option.productCount)) {
+        const count = document.createElement("small");
+        count.textContent = `${option.productCount}개`;
+        count.style.display = "block";
+        count.style.marginTop = "6px";
+        btn.appendChild(count);
+        btn.setAttribute("aria-label", `${option.label} · ${option.productCount}개 제품`);
+      }
 
       btn.addEventListener("click", () => {
         selectOption(rowId, option.id, btn, rowEl);
@@ -102,3 +110,13 @@ function selectOption(rowId, value, btn, rowEl) {
 }
 
 renderRows(OPTIONS);
+
+// Keep the designer's icons/order, but counts come from the same saved catalogue.
+fetch("/api/options").then(response => {
+  if (!response.ok) throw new Error("options unavailable");
+  return response.json();
+}).then(data => {
+  const merged = Object.fromEntries(Object.entries(OPTIONS).map(([group, entries]) =>
+    [group, entries.map(option => ({...option, productCount: (data[group] || []).find(x => x.id === option.id)?.productCount}))]));
+  renderRows(merged);
+}).catch(() => { /* Navigation still works; never show fabricated counts. */ });

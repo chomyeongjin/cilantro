@@ -93,8 +93,11 @@ class ApiTests(unittest.TestCase):
             'age': '50s-60s', 'gender': 'female', 'goals': ['energy-vitality']})
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.json()['received'])
-        self.assertEqual(len(response.json()['items']), 3)
-        self.assertEqual(response.json()['items'][0]['id'], 'vitamin-b')
+        self.assertEqual(response.json()['version'], 2)
+        self.assertLessEqual(len(response.json()['items']), 3)
+        for item in response.json()['items']:
+            self.assertTrue(item['link'].startswith('detail.html?id='))
+            self.assertTrue(item['reasons'])
 
     def test_original_frontend_paths(self):
         for path in ['/', '/images/pill_sample.png', *('/' + f for f in PUBLIC_FILES)]:

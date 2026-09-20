@@ -1,0 +1,793 @@
+[
+  {
+    "k": "c1",
+    "key": "now-c1000-tablets",
+    "name": "나우푸드 C-1000 타블렛",
+    "title": "Vitamin C-1000 Tablets",
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "rose_hips",
+        25
+      ],
+      [
+        "citrus_bioflavonoids",
+        25
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/2666401",
+    "facts": "Serving Size:  | 1 Tablet\nServings Per Container:  | 100\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C (as Ascorbic Acid)  | 1 g (1,000 mg)  | 1111%\nRose Hips Powder\n(Rosa canina) (Fruit)  | 25 mg  | †\nCitrus Bioflavonoid Complex  | 25 mg  | †\n†Daily Value not established.",
+    "claim": "Antioxidant Protection*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2022-09/0685_mainimage.png?itok=1OdwsWKq"
+  },
+  {
+    "k": "c2",
+    "key": "now-c1000-zinc-d3",
+    "name": "나우푸드 C-1000 아연 D-3",
+    "title": "C-1000 Zinc & D-3 Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/c-1000-zinc-d-3-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "vitamin_d",
+        50,
+        "mcg"
+      ],
+      [
+        "zinc",
+        15
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/7951161799",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 100\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C (as Ascorbic Acid)  | 1 g (1,000 mg)  | 1111%\nVitamin D\n(as D_{3 }Cholecalciferol) (from Lanolin)  | 50 mcg (2,000 IU)  | 250%\nZinc (elemental)\n(from 75 mg Zinc Bisglycinate) (Albion^{™})  | 15 mg  | 136%",
+    "claim": "Antioxidant Protection of Vitamin C*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-01/0696_v2.png?itok=QmeRGzwQ"
+  },
+  {
+    "k": "c3",
+    "key": "now-c500-tablets",
+    "name": "나우푸드 C-500 타블렛",
+    "title": "Vitamin C-500 Tablets",
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-500-tablets",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        500
+      ],
+      [
+        "rose_hips",
+        40
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/7647772192",
+    "facts": "Serving Size:  | 1 Tablet\nServings Per Container:  | 100\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C (as Ascorbic Acid)  | 500 mg  | 556%\nRose Hips Powder\n(Rosa canina) (Fruit)  | 40 mg  | †\n†Daily Value not established.",
+    "claim": "Antioxidant Protection*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2022-09/0670_mainimage.png?itok=xFgfgoGg"
+  },
+  {
+    "k": "c4",
+    "key": "now-calcium-ascorbate-powder",
+    "name": "나우푸드 칼슘 아스코베이트 파우더",
+    "title": "Calcium Ascorbate Powder",
+    "url": "https://www.nowfoods.com/products/supplements/calcium-ascorbate-powder",
+    "units": null,
+    "ingredients": [
+      [
+        "vitamin_c",
+        890
+      ],
+      [
+        "calcium",
+        90
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/17561681",
+    "facts": "Serving Size:  | 1/4 Level Teaspoon (approx. 1.12 g)\nServings Per Container:  | about 203\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C\n(from 1,120 mg Calcium Ascorbate)  | 890 mg  | 989%\nCalcium (elemental)\n(from 1,120 mg Calcium Ascorbate)  | 90 mg  | 7%",
+    "claim": "Antioxidant Protection*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2023-04/0752_mainimage.png?itok=wAjiXDf-"
+  },
+  {
+    "k": "c5",
+    "key": "now-c500-orange-chewable",
+    "name": "나우푸드 C-500 오렌지 츄어블",
+    "title": "Vitamin C-500 Orange Chewable Tablets",
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-500-orange-chewable-tablets",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        500
+      ],
+      [
+        "sodium",
+        40
+      ],
+      [
+        "acerola",
+        5
+      ],
+      [
+        "citrus_bioflavonoids",
+        5
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/28078",
+    "facts": "Serving Size:  | 1 Chewable Tablet\nServings Per Container:  | 100\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nCalories  | 5  |\nTotal Carbohydrates  | 1 g  | <1%**\nTotal Sugars  | 1 g  | †\nIncludes 1g Added Sugars  | 0  | 2%**\nSugar Alcohols (Sorbitol & Xylitol)  | <1 g  | †\nVitamin C\n(from Sodium Ascorbate and as Ascorbic Acid)  | 500 mg  | 556%\nSodium  | 40 mg  | 2%\nAcerola Extract Complex\n(Malpighia punicifolia) (Fruit)  | 5 mg  | †\nCitrus Bioflavonoid Complex  | 5 mg  | †\n**Percent Daily Values are based on a 2,000 calorie diet.\n†Daily Value not established.",
+    "claim": "Antioxidant & Collagen Support*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "Xylitol is harmful to pets; seek veterinary care immediately if ingestion is suspected. Learn more about  .",
+      "Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2026-03/0630_v11.png?itok=zpJhToMP"
+  },
+  {
+    "k": "c6",
+    "key": "now-c-crystals-powder",
+    "name": "나우푸드 비타민 C 크리스탈 파우더",
+    "title": "Vitamin C Crystals Powder",
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-crystals-powder",
+    "units": null,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1100
+      ]
+    ],
+    "retail": "https://pages.coupang.com/p/68006",
+    "facts": "Serving Size:  | 1/4 Level Teaspoon (1.1 g)\nServings Per Container:  | about 206\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C\n(Ascorbic Acid)  | 1.1 g (1,100 mg)  | 1222%",
+    "claim": "Antioxidant Protection*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2022-10/0790_mainimage.png?itok=seRONQru"
+  },
+  {
+    "k": "c7",
+    "key": "now-liposomal-c",
+    "name": "나우푸드 리포소말 비타민 C",
+    "title": "Liposomal Vitamin C Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/liposomal-vitamin-c-veg-capsules",
+    "units": 2,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "retail": "https://pages.coupang.com/m/141692",
+    "facts": "Serving Size:  | 2 Veg Capsules\nServings Per Container:  | 60\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nVitamin C\n(Liposomal PureWay-C^{™})  | 1 g (1,000 mg)  | 1111%",
+    "claim": "Immune & Collagen Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-02/0619_v3.png?itok=In1miFIh"
+  },
+  {
+    "k": "c8",
+    "key": "solgar-c1000-capsules",
+    "name": "솔가 비타민 C 1000",
+    "title": "Solgar Vitamin C 1000 mg Vegetable Capsules",
+    "url": "https://www.solgar.com/products/solgar-vitamin-c-1000-mg-vegetable-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "retail": "https://pages.coupang.com/p/68006",
+    "facts": "Serving Size: 1 Vegetable Capsule\nAmount Per Serving  | %DV\nVitamin C  | 1000 mg  | 1667%\n^{*}Daily Value (DV) not established",
+    "claim": null,
+    "warnings": [
+      "If you are pregnant, nursing, taking any medication or have a medical condition, please consult your healthcare practitioner before taking any dietary supplement. Keep out of reach of children. Store in a cool, dry place. Do not use if outer bottle seal is missing, torn or damaged in any way."
+    ],
+    "storage": "Store in a cool, dry place.",
+    "potency": null,
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2025-05/SO_032804_F.png"
+  },
+  {
+    "k": "c9",
+    "key": "solgar-ester-c1000-tablets",
+    "name": "솔가 에스터-C 플러스 1000",
+    "title": "Ester-C® Plus 1000 mg Vitamin C Capsules– Immune Support",
+    "url": "https://www.solgar.com/products/ester-c-plus-1000mg-vitamin-c-vegetable-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "calcium",
+        100
+      ],
+      [
+        "citrus_bioflavonoids",
+        200
+      ],
+      [
+        "acerola",
+        25
+      ],
+      [
+        "rose_hips",
+        25
+      ],
+      [
+        "rutin",
+        25
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/search?channel=user&component=&q=%EC%86%94%EA%B0%80%20%EC%97%90%EC%8A%A4%ED%84%B0-C%201000mg",
+    "facts": "Serving Size: 1 Tablet\nAmount Per Serving  | % DV\n--- | ---\nCalories  | 5  |\nTotal Carbohydrate  | 1 g  | <1%**\nVitamin C\n  (as Ester-C^{®} calcium ascorbate)  | 1,000 mg  | 1,111%\nCalcium\n  (as Ester-C^{®} calcium ascorbate)  | 100 mg  | 8%\nCitrus Bioflavonoid Complex  | 200 mg  | ***\nAcerola Extract  | 25 mg  | ***\nRose Hips (fruit)  | 25 mg  | ***\nRutin  | 25 mg  | ***\n**Percent Daily Values (DV) are based on a 2,000 calorie diet\n***Daily Value (DV) not established\n^Based on serving size of 2 capsules per day.",
+    "claim": "Harnesses the power of antioxidants to help fight against free radicals*",
+    "warnings": [
+      "If you are pregnant, nursing, taking any medications or have any medical condition, please consult your healthcare practitioner before taking any dietary supplement. Discontinue use and consult your healthcare practitioner if any adverse reactions occur. Keep out of reach of children. Store at room temperature. Do not use if outer bottle seal is missing or damaged."
+    ],
+    "storage": null,
+    "potency": null,
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2025-07/100009259-Ester-C-Plus-1000-MG_60-TAB.png"
+  },
+  {
+    "k": "c10",
+    "key": "doctorsbest-c1000-qc",
+    "name": "닥터스베스트 비타민 C Q-C 1000",
+    "title": "Doctor's Best Vitamin C with Q-C, 1,000 mg, 360 Veggie Caps",
+    "url": "https://www.doctorsbest.com/products/doctor-s-best-vitamin-c-1-000-mg-360-veggie-caps-55589",
+    "units": 1,
+    "ingredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "retail": "https://pages.coupang.com/m/141692",
+    "facts": "Serving Size 1 Veggie Capsule\nServings Per Container 360\n\n | Amount Per Serving\n | % Daily Value\nVitamin C(as Q-C ascorbic acid)  | 1000 mg  | 1111%",
+    "claim": "Helps support the body with antioxidants*",
+    "warnings": [],
+    "storage": null,
+    "potency": null,
+    "image": "https://www.doctorsbest.com/cdn/shop/files/753950003279-BFP-V5-070224.png?v=1767013651&width=416"
+  },
+  {
+    "k": "m1",
+    "key": "now-magnesium400",
+    "name": "나우푸드 마그네슘 400",
+    "title": "Magnesium 400 mg Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-400-mg-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/26208",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 180\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from Magnesium Oxide, Magnesium Citrate\nand Magnesium Aspartate)  | 400 mg  | 95%",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-12/1283_v8.png?itok=l-69zHoV"
+  },
+  {
+    "k": "m2",
+    "key": "now-magnesium-citrate-tablets",
+    "name": "나우푸드 마그네슘 시트레이트 타블렛",
+    "title": "Magnesium Citrate",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-citrate-200-mg-tablets",
+    "units": 2,
+    "ingredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497361",
+    "facts": "Serving Size:  | 2 Tablets\nServings Per Container:  | 50\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from Magnesium Citrate)  | 400 mg  | 95%",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-05/1290_v14.png?itok=Ss2FOjpj"
+  },
+  {
+    "k": "m3",
+    "key": "now-magnesium-glycinate-tablets",
+    "name": "나우푸드 마그네슘 글리시네이트 타블렛",
+    "title": "Magnesium Glycinate Tablets",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-glycinate-tablets",
+    "units": 2,
+    "ingredients": [
+      [
+        "magnesium",
+        200
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497351",
+    "facts": "Serving Size:  | 2 Tablets\nServings Per Container:  | 45\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from Magnesium Bisglycinate) (Albion™)  | 200 mg  | 48%",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-10/1286_1.png?itok=_oC0uqXd"
+  },
+  {
+    "k": "m4",
+    "key": "now-magnesium-glycinate-bioperine",
+    "name": "나우푸드 마그네슘 글리시네이트 바이오페린",
+    "title": "Magnesium Glycinate",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-glycinate-bioperine-veg-capsules",
+    "units": 2,
+    "ingredients": [
+      [
+        "magnesium",
+        200
+      ],
+      [
+        "black_pepper_extract",
+        2.5
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497361",
+    "facts": "Serving Size:  | 2 Veg Capsules\nServings Per Container:  | 30\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from Magnesium Bisglycinate) (Albion™)  | 200 mg  | 48%\nBlack Pepper Fruit Extract (BioPerine^{®})\n(min. 96% Piperine)\n   | 2.5 mg  | †\n†Daily Value not established.",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-06/1287_v1.png?itok=uefoETLd"
+  },
+  {
+    "k": "m5",
+    "key": "now-magnesium-malate1000",
+    "name": "나우푸드 마그네슘 말레이트 1000",
+    "title": "Magnesium Malate",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-malate-1000-mg-tablets",
+    "units": 1,
+    "ingredients": [
+      [
+        "magnesium",
+        113
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/26222",
+    "facts": "Serving Size:  | 1 Tablet\nServings Per Container:  | 180\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from 1000 mg Magnesium Malate)  | 113 mg  | 27%",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-06/1300_v10.png?itok=dvpKFV9y"
+  },
+  {
+    "k": "m6",
+    "key": "now-magnesium-citrate-capsules",
+    "name": "나우푸드 마그네슘 시트레이트 캡슐",
+    "title": "Magnesium Citrate Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-citrate-veg-capsules",
+    "units": 3,
+    "ingredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/2551300",
+    "facts": "Serving Size:  | 3 Veg Capsules\nServings Per Container:  | 20\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from Magnesium Citrate)  | 400 mg  | 95%",
+    "claim": "Nervous System Support*",
+    "warnings": [
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-08/1291_v1.png?itok=zmqBKoQe"
+  },
+  {
+    "k": "m7",
+    "key": "now-magtein",
+    "name": "나우푸드 마그테인",
+    "title": "Magtein® Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/magtein-veg-capsules",
+    "units": 3,
+    "ingredients": [
+      [
+        "magnesium",
+        144
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/209285",
+    "facts": "Serving Size:  | 3 Veg Capsules\nServings Per Container:  | 30\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nMagnesium (elemental)\n(from 2,000 mg Magtein^{®} magnesium L-threonate)  | 144 mg  | 34%\nMagtein^{®}\n(magnesium L-threonate)  | 2 g (2,000 mg)  | †\n†Daily Value not established.",
+    "claim": "Cognitive Support*",
+    "warnings": [
+      "For adults only. Like other magnesium products, Magtein^{®} may induce sleepiness, drowsiness or headaches at first. Reduce the dosage, consult a doctor, or discontinue use if conditions persist for more than one week. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children.",
+      "For adults only. Like other magnesium products, Magtein^{®} may induce sleepiness, drowsiness or headaches at first. Reduce the dosage, consult a doctor, or discontinue use if conditions persist for more than one week. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place after opening.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2026-03/2390_v10.png?itok=TIQoY6Xy"
+  },
+  {
+    "k": "m8",
+    "key": "solgar-magnesium-citrate",
+    "name": "솔가 마그네슘 시트레이트",
+    "title": "Solgar Magnesium Citrate Tablets",
+    "url": "https://www.solgar.com/products/solgar-magnesium-citrate-tablets",
+    "units": 2,
+    "ingredients": [
+      [
+        "magnesium",
+        400
+      ],
+      [
+        "sodium",
+        10
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497361",
+    "facts": "Serving Size: 2 Tablets\nAmount Per Serving  | % DV\n--- | ---\nMagnesium (as magnesium citrate)  | 400 mg  | 95%\nSodium  | 10 mg  | <1%\nDV = Daily Value\n\n^{†According to the National Institutes of Health, magnesium intake by most American adults is lower than recommended.  Adequate magnesium intake is needed to support the contraction and relaxation of muscles and help with leg cramps.** Leg cramps can occur occasionally among adults with inadequate intake.**}",
+    "claim": "Maintain proper nerve and muscle function*",
+    "warnings": [
+      "If you are pregnant, nursing, taking any medications or have any medical condition, please consult your healthcare practitioner before taking any dietary supplement. Discontinue use and consult your healthcare practitioner if any adverse reactions occur. Keep out of reach of children. Store at room temperature. Do not use if outer bottle seal is missing or damaged."
+    ],
+    "storage": null,
+    "potency": null,
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2023-08/f87er615.png"
+  },
+  {
+    "k": "m9",
+    "key": "lifeextension-magnesium500",
+    "name": "라이프익스텐션 마그네슘 500",
+    "title": "Magnesium Caps",
+    "url": "https://www.lifeextension.com/vitamins-supplements/item01459/magnesium-caps",
+    "units": 1,
+    "ingredients": [
+      [
+        "magnesium",
+        500
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/8070473377",
+    "facts": "Serving Size 1 vegetarian capsule\nAmount Per Serving\nMagnesium [as magnesium oxide, citrate, succinate] 500 mg",
+    "claim": "Supports healthy bone density & nervous system function",
+    "warnings": [
+      "If taken in high doses, magnesium may have a laxative effect. If this occurs, divide dosing, reduce intake, or discontinue product."
+    ],
+    "storage": null,
+    "potency": null,
+    "image": "https://www.lifeextension.com/-/media/lifeextension/products/large/01459.png?rev=f1712e9aabe64b54b410214d1db92fc0&la=en&h=400&hash=ED8746176D24EB330C20E7C40DAAE507"
+  },
+  {
+    "k": "m10",
+    "key": "solgar-chelated-magnesium",
+    "name": "솔가 킬레이트 마그네슘",
+    "title": "Chelated Magnesium Tablets**",
+    "url": "https://www.solgar.com/products/chelated-magnesium-tablets",
+    "units": 4,
+    "ingredients": [
+      [
+        "magnesium",
+        400
+      ],
+      [
+        "sodium",
+        10
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/8435587447",
+    "facts": "Serving Size: 4 Tablets\nAmount Per Serving  | % DV\n--- | ---\nCalories  | 10  |\nTotal Carbohydrate  | 2 g  | 1%**\nMagnesium\n(as magnesium glycinate chelate, magnesium oxide)†  | 400 mg  | 95%\nSodium††  | 10 mg  | <1%\n**Percent Daily Values (DV) are based on a 2,000 calorie diet. ††Naturally occurring.",
+    "claim": "Support nerve & muscle function*",
+    "warnings": [
+      "If you are pregnant, nursing, taking any medications or have any medical condition, please consult your healthcare practitioner before taking any dietary supplement. Discontinue use and consult your healthcare practitioner if any adverse reactions occur. Keep out of reach of children. Store at room temperature. Do not use if outer bottle seal is missing or damaged."
+    ],
+    "storage": null,
+    "potency": null,
+    "image": "https://www.solgar.com/sites/g/files/lpfasj931/files/2025-05/SO_007000_F.png"
+  },
+  {
+    "k": "p1",
+    "key": "now-probiotic10-25b",
+    "name": "나우푸드 프로바이오틱-10 250억",
+    "title": "Probiotic-10™ 25 Billion Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-25-billion-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        25000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/categories/497474",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 30\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nBlend of 10 Strains\nof Probiotic Bacteria (25 Billion CFU):Lactobacillus acidophilus (La-14), Bifidobacterium lactis (Bl-04), Lactobacillus plantarum (Lp-115), Lactobacillus casei (Lc-11), Lactobacillus rhamnosus (Lr-32), Lactobacillus paracasei (Lpc-37), Bifidobacterium breve (Bb-18), Streptococcus thermophilus (St-21), Lactobacillus salivarius (Ls-33), Bifidobacterium longum (BI-05)  | 160 mg  | **\n**Daily Value not established.",
+    "claim": "Healthy Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place to maintain potency.",
+    "potency": "This product is formulated to deliver a potency of 25 billion CFU through the Best By date.",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-07/2937_v6.png?itok=MFv5ow0A"
+  },
+  {
+    "k": "p2",
+    "key": "now-probiotic10-50b",
+    "name": "나우푸드 프로바이오틱-10 500억",
+    "title": "Probiotic-10 50 Billion Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        50000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/categories/497474",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 50\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nBlend of 10 Strains\nof Probiotic Bacteria (50 Billion CFU):Lactobacillus acidophilus (La-14), Bifidobacterium lactis (Bl-04), Lactobacillus plantarum (Lp-115), Lactobacillus casei (Lc-11), Lactobacillus rhamnosus (Lr-32), Lactobacillus paracasei (Lpc-37), Bifidobacterium breve (Bb-18), Streptococcus thermophilus (St-21), Lactobacillus salivarius (Ls-33), Bifidobacterium longum (Bl-05)  | 260 mg  | **\n**Daily Value not established.",
+    "claim": "Healthy Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place to maintain potency.",
+    "potency": "This product is formulated to deliver a potency of 50 Billion CFU through the Best By date.",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-06/2928_v9.png?itok=qFAWpt19"
+  },
+  {
+    "k": "p3",
+    "key": "now-probiotic10-100b",
+    "name": "나우푸드 프로바이오틱-10 1000억",
+    "title": "Probiotic-10™ 100 Billion Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-100-billion-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        100000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/categories/497474",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 30\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nBlend of 10 Strains\nof Probiotic Bacteria (100 Billion CFU): Lactobacillus acidophilus (La-14), Bifidobacterium lactis (Bl-04), Lactobacillus plantarum (Lp-115), Lactobacillus casei (Lc-11), Lactobacillus rhamnosus (Lr-32), Lactobacillus paracasei (Lpc-37), Bifidobacterium breve (Bb-18), Streptococcus thermophilus (St-21), Lactobacillus salivarius (Ls-33), Bifidobacterium longum (BI-05)  | 520 mg  | **\n**Daily Value not established.",
+    "claim": "For Temporary Disruptions to Intestinal Balance*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "KEEP REFRIGERATED TO MAINTAIN POTENCY.",
+    "potency": "This product is formulated to deliver a potency of 100 Billion CFU through the Best By date.",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-04/2931_v6.png?itok=_QQiH1Ll"
+  },
+  {
+    "k": "p4",
+    "key": "now-acidophilus-2b",
+    "name": "나우푸드 아시도필루스 20억",
+    "title": "Acidophilus Capsule",
+    "url": "https://www.nowfoods.com/products/supplements/acidophilus-two-billion-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        2000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497374",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 100\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nLactobacillus acidophilus (La-14)\n(2 Billion CFU)  | 20 mg  | **\n**Daily Value not established.",
+    "claim": "Healthy Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": null,
+    "potency": "This product is formulated to deliver a potency of 2 billion CFU through the Best By date.",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-02/2905_v8.png?itok=Z-K3al_4"
+  },
+  {
+    "k": "p5",
+    "key": "now-acidophilus-bifidus-8b",
+    "name": "나우푸드 아시도필루스 비피더스 80억",
+    "title": "8 Billion Acidophilus & Bifidus Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/8-billion-acidophilus-bifidus-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        8000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/vp/products/27999",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 60\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nBlend of Probiotic Bacteria (8 Billion CFU):\nLactobacillus acidophilus (La-14), Bifidobacterium lactis (BI-04), Bifidobacterium longum (BI-05)  | 68 mg  | **\n**Daily Value not established.",
+    "claim": "Healthy Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place to maintain potency.",
+    "potency": "This product is formulated to deliver a potency of 8 billion CFU through the Best By date.",
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2025-11/2930_v11.png?itok=dEtW6bGL"
+  },
+  {
+    "k": "p6",
+    "key": "now-gr8-dophilus",
+    "name": "나우푸드 GR8-도필루스",
+    "title": "GR8-Dophilus Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/gr8-dophilus-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        4000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/11028",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 60\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nProbiotic Blend of 8 Strains\n(4 Billion CFU):  Lactobacillus acidophilus (La-14), Lactobacillus rhamnosus (Lr-32), Bifidobacterium lactis (BI-04), Lactobacillus salivarius (Ls-33), Lactobacillus casei (Lc-11), Bifidobacterium longum (BI-05), Streptococcus thermophilus (St-21), Bifidobacterium bifidum (Bb-02)  | 370 mg  | **\n**Daily Value not established.",
+    "claim": "Healthy Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Contains trace amounts of soy.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place to maintain potency.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2026-01/2912_v13.png?itok=HCwR3UGo"
+  },
+  {
+    "k": "p7",
+    "key": "now-saccharomyces-boulardii",
+    "name": "나우푸드 사카로미세스 보울라디",
+    "title": "Saccharomyces Boulardii",
+    "url": "https://www.nowfoods.com/products/supplements/saccharomyces-boulardii-veg-capsules",
+    "units": 2,
+    "ingredients": [
+      [
+        "probiotics",
+        10000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/11028",
+    "facts": "Serving Size:  | 2 Veg Capsules\nServings Per Container:  | 30\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nSaccharomyces boulardii\n(10 Billion CFU) (Saccharomyces cerevisiae var. boulardii)  | 1,000 mg  | **\n**Daily Value not established.",
+    "claim": "Supports a Healthy Balance of Intestinal Flora*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "REFRIGERATE TO MAINTAIN POTENCY.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2024-06/2934_v8.png?itok=8dc5cQ7X"
+  },
+  {
+    "k": "p8",
+    "key": "now-womens-probiotic20b",
+    "name": "나우푸드 여성용 프로바이오틱 200억",
+    "title": "Women's Probiotic 20 Billion Veg Capsules",
+    "url": "https://www.nowfoods.com/products/supplements/womens-probiotic-20-billion-veg-capsules",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        20000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/campaigns/15797/components/497374",
+    "facts": "Serving Size:  | 1 Veg Capsule\nServings Per Container:  | 50\nDescription  | Amount per Serving  | % Daily Value\n--- | --- | ---\nBlend of Probiotic Bacteria\n(20 Billion CFU):Bifidobacterium lactis (HN019), Lactobacillus acidophilus (La-14), Lactobacillus rhamnosus (HN001)  | 231 mg  | **\n**Daily Value not established.",
+    "claim": "Feminine Flora Balance*",
+    "warnings": [
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children.",
+      "Consult physician if pregnant/nursing, taking medication (especially immune-suppressing drugs), or have a medical condition (especially if immune system is compromised). Keep out of reach of children."
+    ],
+    "storage": "Store in a cool, dry place to maintain potency.",
+    "potency": null,
+    "image": "https://www.nowfoods.com/sites/default/files/styles/cloudzoom_image/public/2026-01/2906_v6.png?itok=kk6jAS1i"
+  },
+  {
+    "k": "p9",
+    "key": "jarrow-eps10b",
+    "name": "자로우 EPS 100억",
+    "title": "Jarro-Dophilus® EPS 10 Billion CFU Probiotic",
+    "url": "https://jarrow.com/products/jarro-dophilus-eps-10-billion-cfu-enteric-coated-veggie-caps",
+    "units": 2,
+    "ingredients": [
+      [
+        "probiotics",
+        10000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/search?q=%EB%82%98%EC%9A%B0%ED%91%B8%EB%93%9C%20%ED%94%84%EB%A1%9C%EB%B0%94%EC%9D%B4%EC%98%A4%ED%8B%B1",
+    "facts": "Serving Size: 2 Capsules\n\nServings Per Container : 30 or 60\n\nAmount Per Serving\n\n% Daily Value\n\nProprietary Probiotic Blend\n131 mg (10 Billion CFU)\n\n†\n\nLacticaseibacillus rhamnosus R0011\n\nLactobacillus helveticus R0052\n\nPediococcus acidilactici R1001\n\nLacticaseibacillus casei R0215\n\nBifidobacterium longum BB536\n\nLactiplantibacillus plantarum R1012\n\nBifidobacterium breve R0070\n\nLactococcus lactis subsp. lactis R1058\n\n† Daily Value (DV) not established.",
+    "claim": "Digestive Health",
+    "warnings": [
+      "Consult a healthcare professional before using this product if you are pregnant, nursing, under the age of 18, are taking medication or have a medical condition; if adverse reactions occur, discontinue use.",
+      "Contains: Milk and soy (in trace amounts)."
+    ],
+    "storage": "Avoid storage at temperature above 77°F (25°C).",
+    "potency": "When kept under recommended storage conditions, Jarrow® Probiotics are formulated to ensure CFU counts are guaranteed within Best Used Before date.",
+    "image": "https://jarrow.com/cdn/shop/files/f80d5344-ebe2-4337-b0a0-2b282257a164.jpg?v=1786986072&width=1920"
+  },
+  {
+    "k": "p10",
+    "key": "jarrow-fem-dophilus1b",
+    "name": "자로우 펨 도필루스 10억",
+    "title": "Fem-Dophilus® 1 Billion CFU Women's Probiotic",
+    "url": "https://jarrow.com/products/fem-dophilus-1-billion-cfu-veggie-caps",
+    "units": 1,
+    "ingredients": [
+      [
+        "probiotics",
+        1000000000,
+        "CFU"
+      ]
+    ],
+    "retail": "https://www.coupang.com/np/categories/497474",
+    "facts": "Serving Size: 1 Capsule\n\nAmount Per Serving\n\n% Daily Value\nProprietary Probiotic Blend\n\n155 mg (1 Billion CFU§)\n\n†\n\nLacticaseibacillus rhamnosus GR-1®\n\nLimosilactobacillus reuteri RC-14®\n\n† Daily Value (DV) not established.",
+    "claim": "Women's Health",
+    "warnings": [
+      "Consult a healthcare professional before using this product if you are pregnant, nursing, under the age of 18, are taking medication or have a medical condition; if adverse reactions occur, discontinue use."
+    ],
+    "storage": "Avoid storage at temperature above 77°F (25°C).",
+    "potency": "Minimum 1 billion viable cells at time of consumption, under recommended storage conditions and within Best Used Before date.",
+    "image": "https://jarrow.com/cdn/shop/files/83e9b9c1-b7e8-4a38-a239-634ec0a260ec.jpg?v=1786985994&width=1920"
+  }
+]

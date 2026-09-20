@@ -10,10 +10,10 @@ from fastapi import FastAPI, HTTPException, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from recommendations import pick_recommendations
+from recommendations import recommend_products
 from service import KST, db_path, read_snapshot, ranked
 from scheduler import Collector
-from products.router import router as products_router
+from products.router import router as products_router, catalogue
 
 logger = logging.getLogger(__name__)
 
@@ -85,9 +85,9 @@ class RecommendationRequest(BaseModel):
 
 @app.post('/api/recommendations')
 def submit_recommendation(payload: RecommendationRequest):
-    logger.info('Recommendation request: age=%s gender=%s goals=%s',
-                payload.age, payload.gender, payload.goals)
-    return {'received': True, 'items': pick_recommendations(payload.goals)}
+    if payload.age is None and payload.gender is None and not payload.goals:
+        raise HTTPException(422, '연령·성별·관심 목적 중 하나 이상 선택하세요.')
+    return recommend_products(catalogue(), payload.age, payload.goals, payload.gender)
 
 
 @app.get('/health')

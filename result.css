@@ -18,10 +18,10 @@
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 48px;
   margin-top: 50px;
-  margin-left: 65px;
+  margin-left: 0;
 }
 
 .result-grid .state-message {
@@ -29,8 +29,8 @@
 }
 
 .result-card {
-  aspect-ratio: 369 / 619;
-  width: 400px;
+  width: 100%;
+  min-height: 580px;
   display: flex;
   flex-direction: column;
   background-image: url("images/recommend_resultCard.png");
@@ -39,7 +39,7 @@
 }
 
 .result-card-top {
-  flex: 0 0 27%;
+  flex: 0 0 170px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@
 }
 
 .result-name {
-  margin: 7px 0 50px;
+  margin: 7px 0 18px;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -96,7 +96,7 @@
 }
 
 .result-desc {
-  margin: 0 0 auto;
+  margin: 0 0 14px;
   font-size: 13px;
   line-height: 1.6;
 }
@@ -117,3 +117,8 @@
     margin-right: auto;
   }
 }
+.result-summary { font-size: 13px; line-height: 1.7; margin: 20px 0 28px; }
+.result-card details { font-size: 12px; line-height: 1.7; margin-top: 12px; overflow-wrap: anywhere; }
+.result-goals { font-size: 14px; }
+.result-review-warning { color: #853820; font-size: 13px; line-height: 1.7; border-left: 3px solid #853820; padding-left: 10px; }
+.result-eligibility { font-size: 13px; font-weight: bold; }

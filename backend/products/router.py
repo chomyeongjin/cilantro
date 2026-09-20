@@ -5,6 +5,8 @@ from fastapi import APIRouter, HTTPException, Query
 from . import store
 from .config import readiness
 from .presenter import product_view
+from .matching import classify, category_notice
+from .age_guidance import age_guidance
 from .taxonomy import LABELS, OPTIONS, options
 
 router = APIRouter()
@@ -12,7 +14,7 @@ router = APIRouter()
 
 def catalogue():
     try:
-        return [product_view(record) for record in store.published()]
+        return [classify(product_view(record), record) for record in store.published()]
     except (sqlite3.Error, OSError, ValueError, KeyError):
         raise HTTPException(503, '제품 저장소를 읽을 수 없습니다.') from None
 
@@ -60,6 +62,8 @@ def get_category(option_id: str, offset: int = Query(0, ge=0), limit: int = Quer
     items = filtered(catalogue(), type, effect, age)
     items = [p for p in items if option_id == 'all' or option_id in all_ids(p)]
     return {'id': option_id, 'label': LABELS.get(option_id, '전체 영양제'),
+            'selectionNotice': category_notice(option_id),
+            'ageGuidance': age_guidance(option_id),
             'products': items[offset:offset + limit], 'total': len(items), 'offset': offset, 'limit': limit,
             'nextOffset': offset + limit if offset + limit < len(items) else None,
             'dataStatus': 'ready' if items else 'no_reviewed_products',

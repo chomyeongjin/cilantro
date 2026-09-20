@@ -1,0 +1,446 @@
+{
+  "manual-now-c1000-tablets": {
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "rose_hips",
+        25
+      ],
+      [
+        "citrus_bioflavonoids",
+        25
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-c1000-zinc-d3": {
+    "url": "https://www.nowfoods.com/products/supplements/c-1000-zinc-d-3-veg-capsules",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "vitamin_d",
+        50,
+        "mcg"
+      ],
+      [
+        "zinc",
+        15
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-c500-tablets": {
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-500-tablets",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        500
+      ],
+      [
+        "rose_hips",
+        40
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-calcium-ascorbate-powder": {
+    "url": "https://www.nowfoods.com/products/supplements/calcium-ascorbate-powder",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        890
+      ],
+      [
+        "calcium",
+        90
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-c500-orange-chewable": {
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-500-orange-chewable-tablets",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        500
+      ],
+      [
+        "sodium",
+        40
+      ],
+      [
+        "acerola",
+        5
+      ],
+      [
+        "citrus_bioflavonoids",
+        5
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-c-crystals-powder": {
+    "url": "https://www.nowfoods.com/products/supplements/vitamin-c-crystals-powder",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1100
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-liposomal-c": {
+    "url": "https://www.nowfoods.com/products/supplements/liposomal-vitamin-c-veg-capsules",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-solgar-c1000-capsules": {
+    "url": "https://www.solgar.com/products/solgar-vitamin-c-1000-mg-vegetable-capsules",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-solgar-ester-c1000-tablets": {
+    "url": "https://www.solgar.com/products/ester-c-plus-1000mg-vitamin-c-vegetable-capsules",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ],
+      [
+        "calcium",
+        100
+      ],
+      [
+        "citrus_bioflavonoids",
+        200
+      ],
+      [
+        "acerola",
+        25
+      ],
+      [
+        "rose_hips",
+        25
+      ],
+      [
+        "rutin",
+        25
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-doctorsbest-c1000-qc": {
+    "url": "https://www.doctorsbest.com/products/doctor-s-best-vitamin-c-1-000-mg-360-veggie-caps-55589",
+    "expectedIngredients": [
+      [
+        "vitamin_c",
+        1000
+      ]
+    ],
+    "adultQuote": "Suggested Adult Use: Take 1 capsule daily preferably without food, or as recommended by a nutritionally informed physician.",
+    "effects": []
+  },
+  "manual-now-magnesium400": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-400-mg-veg-capsules",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magnesium-citrate-tablets": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-citrate-200-mg-tablets",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magnesium-glycinate-tablets": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-glycinate-tablets",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        200
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magnesium-glycinate-bioperine": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-glycinate-bioperine-veg-capsules",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        200
+      ],
+      [
+        "black_pepper_extract",
+        2.5
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magnesium-malate1000": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-malate-1000-mg-tablets",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        113
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magnesium-citrate-capsules": {
+    "url": "https://www.nowfoods.com/products/supplements/magnesium-citrate-veg-capsules",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        400
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-now-magtein": {
+    "url": "https://www.nowfoods.com/products/supplements/magtein-veg-capsules",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        144
+      ]
+    ],
+    "adultQuote": "For adults only.",
+    "effects": []
+  },
+  "manual-solgar-magnesium-citrate": {
+    "url": "https://www.solgar.com/products/solgar-magnesium-citrate-tablets",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        400
+      ],
+      [
+        "sodium",
+        10
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-lifeextension-magnesium500": {
+    "url": "https://www.lifeextension.com/vitamins-supplements/item01459/magnesium-caps",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        500
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-solgar-chelated-magnesium": {
+    "url": "https://www.solgar.com/products/chelated-magnesium-tablets",
+    "expectedIngredients": [
+      [
+        "magnesium",
+        400
+      ],
+      [
+        "sodium",
+        10
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-probiotic10-25b": {
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-25-billion-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        25000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": [
+      {
+        "id": "immunity",
+        "text": "배합 균주의 면역 기능 지원 표시",
+        "quote": "Probiotic-10™ offers a balanced spectrum of live organisms consisting of acid-resistant probiotic bacterial strains that are known to naturally colonize the human GI tract.* Probiotic bacteria are critical for healthy digestion.* They help maintain the integrity of the intestinal lining, support proper intestinal motility and participate in the detoxification process.* Probiotic-10™ utilizes bacterial strains that have been clinically validated for their support of healthy immune system function.*"
+      }
+    ]
+  },
+  "manual-now-probiotic10-50b": {
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        50000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": [
+      {
+        "id": "immunity",
+        "text": "배합 균주의 면역 기능 지원 표시",
+        "quote": "Probiotic-10™ offers a balanced spectrum of live organisms consisting of acid-resistant probiotic bacterial strains that are known to naturally colonize the human GI tract.* Probiotic bacteria are critical for healthy digestion, help maintain the integrity of the intestinal lining, support proper intestinal motility and participate in the detoxification process.* Probiotic-10™  utilizes bacterial strains that have been clinically validated for their support of healthy immune system function.*"
+      }
+    ]
+  },
+  "manual-now-probiotic10-100b": {
+    "url": "https://www.nowfoods.com/products/supplements/probiotic-10-100-billion-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        100000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-acidophilus-2b": {
+    "url": "https://www.nowfoods.com/products/supplements/acidophilus-two-billion-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        2000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-acidophilus-bifidus-8b": {
+    "url": "https://www.nowfoods.com/products/supplements/8-billion-acidophilus-bifidus-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        8000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-gr8-dophilus": {
+    "url": "https://www.nowfoods.com/products/supplements/gr8-dophilus-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        4000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": [
+      {
+        "id": "immunity",
+        "text": "배합 균주의 면역 기능 지원 표시",
+        "quote": "Gr8-Dophilus™ is a combination of 8 different species of acid-resistant probiotic bacterial strains that are known to naturally colonize the human GI tract.* Probiotic bacteria are critical for healthy digestion.* They help maintain the integrity of the intestinal lining, support proper intestinal motility and participate in the detoxification process.* Gr8-Dophilus™ utilizes bacterial strains that have been clinically validated for their support of healthy immune system function.*"
+      }
+    ]
+  },
+  "manual-now-saccharomyces-boulardii": {
+    "url": "https://www.nowfoods.com/products/supplements/saccharomyces-boulardii-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        10000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": []
+  },
+  "manual-now-womens-probiotic20b": {
+    "url": "https://www.nowfoods.com/products/supplements/womens-probiotic-20-billion-veg-capsules",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        20000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": null,
+    "effects": [
+      {
+        "id": "immunity",
+        "text": "HN019·HN001 배합의 여성 면역 기능 지원 표시",
+        "quote": "These specialized strains also support healthy, balanced immune system function in women of all ages.*"
+      },
+      {
+        "id": "digestive-health",
+        "text": "HN019의 장 규칙성·가스 관련 표시",
+        "quote": "HN019 also supports GI regularity and reduces occasional gas and bloating.*"
+      }
+    ]
+  },
+  "manual-jarrow-eps10b": {
+    "url": "https://jarrow.com/products/jarro-dophilus-eps-10-billion-cfu-enteric-coated-veggie-caps",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        10000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": "Adults take 2 Jarrow probiotic capsules by mouth once a day as part of your nutrition wellness routine with water or juice, preferably on an empty stomach, or as directed by your qualified healthcare professional",
+    "effects": [
+      {
+        "id": "immunity",
+        "text": "EPS 배합의 장·면역 건강 지원 표시",
+        "quote": "Jarro-Dophilus® EPS supports the health of the intestinal tract with a balanced mixture of carefully selected probiotic strains for intestinal and immune health.*"
+      }
+    ]
+  },
+  "manual-jarrow-fem-dophilus1b": {
+    "url": "https://jarrow.com/products/fem-dophilus-1-billion-cfu-veggie-caps",
+    "expectedIngredients": [
+      [
+        "probiotics",
+        1000000000,
+        "CFU"
+      ]
+    ],
+    "adultQuote": "Adults take 1 capsule once a day. May be taken with or without food. If your healthcare professional recommends taking this product in conjunction with antibiotics, take at least 1-2 hours after taking the medication.",
+    "effects": []
+  }
+}

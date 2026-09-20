@@ -130,6 +130,12 @@ class CatalogueTests(unittest.TestCase):
         self.assertNotIn('text', product['sources'][0])
         self.assertNotIn('reviewer', product)
         self.assertEqual(self.client.get('/api/categories/eye-health').json()['total'], 1)
+        # Adult-labelled comparison candidates are distinct from age efficacy.
+        adult_category = self.client.get('/api/categories/20s').json()
+        self.assertEqual(adult_category['total'], 1)
+        self.assertIn('효능 순위가 아니라', adult_category['selectionNotice'])
+        self.assertEqual(product['ageMatches'][0]['basis'], 'adult_label_not_age_efficacy')
+        self.assertEqual(self.client.get('/api/categories/kids').json()['total'], 0)
         self.assertEqual(self.client.get('/api/categories/50s-60s').json()['total'], 0)
         self.assertEqual(self.client.get('/api/categories/omega3?effect=immunity').json()['total'], 0)
 

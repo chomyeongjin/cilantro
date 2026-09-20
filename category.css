@@ -95,6 +95,7 @@ a.compare-cell:hover {
 }
 
 .size {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,3 +133,14 @@ a.compare-cell:hover {
     border-bottom: none;
   }
 }
+
+.selection-notice { max-width: 1000px; line-height: 1.7; font-size: 13px; color: #665748; margin: 18px 0 24px; }
+.selection-empty { grid-column: 1 / -1; padding: 40px 20px; }
+.match-reasons { margin: 16px var(--group-inset) 0; font-size: 12px; line-height: 1.7; border-top: 1px dashed var(--line); padding-top: 10px; overflow-wrap: anywhere; }
+.match-reasons p { margin: 0 0 8px; }
+.match-caution { color: #8b3a24; }
+.age-guidance { margin: 24px 0; padding: 20px; border: 1px solid var(--line); line-height: 1.7; }
+.age-guidance h2 { font-size: 18px; }
+.age-guidance h3 { font-size: 15px; margin-bottom: 4px; }
+.age-guidance p, .age-guidance a { font-size: 13px; }
+.age-guidance article { padding: 12px 0; border-top: 1px dashed var(--line); }

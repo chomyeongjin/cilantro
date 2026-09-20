@@ -41,6 +41,12 @@ const backLinkEl = document.querySelector(".back-link");
 let bubbleData = [];
 const bubbleEls = new Map();
 
+function ingredientAmount(fact) {
+  if (fact.amountPerServing == null) return "함량 미확인";
+  if (fact.unit === "CFU") return `${(fact.amountPerServing / 100000000).toLocaleString()}억 CFU`;
+  return `${fact.amountPerServing.toLocaleString()} ${(fact.unit || "").replace("mcg", "μg")}`;
+}
+
 function buildLayout() {
   gridEl.innerHTML = `
     <section class="detail-left">
@@ -80,6 +86,7 @@ function buildLayout() {
         <p id="detail-serving"></p>
         <div id="detail-facts"></div>
         <ul id="detail-warnings" class="product-warnings"></ul>
+        <div id="detail-matching"></div>
       </details>
     </section>
   `;
@@ -146,8 +153,7 @@ function renderProduct(product) {
     const name = document.createElement("dt");
     name.textContent = fact.name;
     const amount = document.createElement("dd");
-    amount.textContent = fact.amountPerServing == null ? "함량 미확인"
-      : `${fact.amountPerServing.toLocaleString()} ${(fact.unit || "").replace("mcg", "μg")}`;
+    amount.textContent = ingredientAmount(fact);
     list.append(name, amount);
   });
   facts.appendChild(list);
@@ -162,14 +168,39 @@ function renderProduct(product) {
     li.textContent = text;
     warnings.appendChild(li);
   });
+  const matching = document.getElementById("detail-matching");
+  const matchingTitle = document.createElement("h2");
+  matchingTitle.textContent = "기대효과·연령 연결 근거";
+  matching.appendChild(matchingTitle);
+  const matchingNote = document.createElement("p");
+  matchingNote.textContent = product.matchingNotice || "연결 근거 미확인";
+  matching.appendChild(matchingNote);
+  const reviewedMatches = [...(product.effectMatches || []), ...(product.ageMatches || []).slice(0, 1)];
+  reviewedMatches.forEach(match => {
+    const line = document.createElement("p");
+    line.textContent = `${match.basis === "nutrient_function" ? "성분 기능" : "제품 표시"} · ${match.reason} `;
+    if (match.sourceUrl?.startsWith("https://")) {
+      const source = document.createElement("a");
+      source.href = match.sourceUrl;
+      source.textContent = "근거 확인";
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      line.appendChild(source);
+    }
+    matching.appendChild(line);
+  });
+  (product.selectionCautions || []).forEach(warning => {
+    const line = document.createElement("p");
+    line.textContent = warning.text;
+    matching.appendChild(line);
+  });
   if (product.ingredients?.length) {
     renderDiagram(product.ingredients);
     document.getElementById("diagram-note").textContent = "전체 제형 중량 기준 · 작은 원은 가독성을 위해 확대 표시";
   } else {
     const bubbles = (product.ingredientFacts || []).filter(f => !f.partOf).map(f => ({
       id: f.key, name: f.name,
-      amount: f.amountPerServing == null ? "함량 미확인"
-        : `${f.amountPerServing.toLocaleString()} ${(f.unit || "").replace("mcg", "μg")}`,
+      amount: ingredientAmount(f),
       weight: f.amountMgPerServing ?? 0,
       incomparable: f.amountMgPerServing == null,
       effects: (product.claims || []).filter(c => c.ingredientKeys.includes(f.key)).map(c => c.text),
