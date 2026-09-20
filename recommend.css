@@ -89,10 +89,14 @@
   transform: rotate(45deg);
 }
 
+.state-message {
+  margin: 25px;
+  padding: 0;
+}
+
 .ask-submit-row {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .ask-submit {

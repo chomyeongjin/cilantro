@@ -14,15 +14,30 @@
 const PILL_IMG = "images/pill_sample.png";
 
 const BUBBLE_COLORS = ["#f3d7de", "#BFD6F6", "#cfcfcf", "#fbe6ec", "#e3ddc9", "#d8e88a"];
-const DECORATIVE_DOTS = [
-  { cx: 58, cy: 40, size: 7 },
-  { cx: 88, cy: 82, size: 6 }
-];
 
 const MAX_BUBBLE = 46;
 const MIN_BUBBLE = 17;
 const PUSH_DISTANCE = 6;
 const NEIGHBOUR_SHRINK = 0.82;
+
+// Bubbles are positioned in the same 0–100 (% of container width) space as
+// the diagram itself. The visible halo ring is bigger than that box —
+// detail.css's .diagram-halo uses `inset:-11%`, so its true radius is
+// 50 + 11 = 61 in this space. DIAGRAM_RADIUS stays a few units under that
+// so bubbles never touch the ring, let alone poke past it.
+const DIAGRAM_CENTER = 50;
+const DIAGRAM_RADIUS = 58;
+const BUBBLE_GAP = 3;
+
+// Compact labels for the supplied label claims; the full source text stays in the API.
+const EFFECT_KEYWORDS = {
+  "혈중 중성지질·혈행 개선에 도움을 줄 수 있음": ["중성지질 개선", "혈행 개선"],
+  "혈행·중성지질·눈 건조·기억력 개선에 도움을 줄 수 있음": ["혈행 개선", "중성지질 개선", "눈 건조 개선", "기억력 개선"],
+  "혈중 중성지질·혈행 개선, 건조한 눈 개선에 도움을 줄 수 있음": ["중성지질 개선", "혈행 개선", "눈 건조 개선"],
+  "어두운 곳에서 시각 적응, 피부·점막의 기능 유지에 필요": ["시각 적응", "피부·점막 유지"],
+  "칼슘·인 흡수와 이용, 뼈 형성·유지에 필요": ["칼슘·인 흡수", "뼈 건강"],
+  "항산화 작용으로 유해산소로부터 세포 보호에 필요": ["항산화", "세포 보호"]
+};
 
 const titleEl = document.getElementById("detail-title");
 const gridEl = document.getElementById("detail-grid");
@@ -98,55 +113,131 @@ function renderProduct(product) {
   const buyLink = document.getElementById("detail-buy-link");
   buyLink.href = product.buyLink || "#";
 
-  renderDiagram(product.ingredients || []);
+  const note = document.getElementById("detail-example-note");
+  note.hidden = !product.exampleNote;
+  note.textContent = product.exampleNote || "";
+  document.getElementById("detail-serving").textContent = product.serving?.value || "";
+  const facts = document.getElementById("detail-facts");
+  const heading = document.createElement("h2");
+  heading.textContent = "1회 섭취량 기준 성분";
+  facts.appendChild(heading);
+  const list = document.createElement("dl");
+  list.className = "ingredient-facts";
+  (product.ingredientFacts || []).forEach((fact) => {
+    const name = document.createElement("dt");
+    name.textContent = fact.name;
+    const amount = document.createElement("dd");
+    amount.textContent = ingredientAmount(fact);
+    list.append(name, amount);
+  });
+  facts.appendChild(list);
+  const warnings = document.getElementById("detail-warnings");
+  (product.warnings || []).forEach((warning) => {
+    const li = document.createElement("li");
+    li.textContent = warning.value;
+    warnings.appendChild(li);
+  });
+  (product.unknowns || []).forEach((text) => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    warnings.appendChild(li);
+  });
+  const matching = document.getElementById("detail-matching");
+  const matchingTitle = document.createElement("h2");
+  matchingTitle.textContent = "기대효과·연령 연결 근거";
+  matching.appendChild(matchingTitle);
+  const matchingNote = document.createElement("p");
+  matchingNote.textContent = product.matchingNotice || "연결 근거 미확인";
+  matching.appendChild(matchingNote);
+  const reviewedMatches = [...(product.effectMatches || []), ...(product.ageMatches || []).slice(0, 1)];
+  reviewedMatches.forEach(match => {
+    const line = document.createElement("p");
+    line.textContent = `${match.basis === "nutrient_function" ? "성분 기능" : "제품 표시"} · ${match.reason} `;
+    if (match.sourceUrl?.startsWith("https://")) {
+      const source = document.createElement("a");
+      source.href = match.sourceUrl;
+      source.textContent = "근거 확인";
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      line.appendChild(source);
+    }
+    matching.appendChild(line);
+  });
+  (product.selectionCautions || []).forEach(warning => {
+    const line = document.createElement("p");
+    line.textContent = warning.text;
+    matching.appendChild(line);
+  });
+  if (product.ingredients?.length) {
+    renderDiagram(product.ingredients);
+    document.getElementById("diagram-note").textContent = "전체 제형 중량 기준 · 작은 원은 가독성을 위해 확대 표시";
+  } else {
+    const bubbles = (product.ingredientFacts || []).filter(f => !f.partOf).map(f => ({
+      id: f.key, name: f.name,
+      amount: ingredientAmount(f),
+      weight: f.amountMgPerServing ?? 0,
+      incomparable: f.amountMgPerServing == null,
+      effects: (product.claims || []).filter(c => c.ingredientKeys.includes(f.key)).map(c => c.text),
+      sideEffects: []
+    })).sort((a, b) => b.weight - a.weight);
+    renderDiagram(bubbles);
+    document.getElementById("diagram-note").textContent =
+      "mg 환산 가능한 성분의 상대 함량을 표시합니다. 작은 원은 확대 표시하며 전체 구성비는 아닙니다. 단위가 달라 비교할 수 없는 성분은 가장 작은 원으로 표시합니다.";
+  }
+}
+
+// Spirals outward from the diagram center, ring by ring, trying several
+// angles per ring, until it finds a spot that (a) stays fully inside the
+// containment circle and (b) doesn't overlap any bubble placed so far. If a
+// size is simply too crowded to fit anywhere, it shrinks and retries rather
+// than falling back to an overlapping or out-of-bounds position.
+function placeBubble(size, placed, seedIndex, depth) {
+  depth = depth || 0;
+
+  if (!placed.length) {
+    return { cx: DIAGRAM_CENTER, cy: DIAGRAM_CENTER, size };
+  }
+
+  const angleCount = 28;
+  const angleOffset = (seedIndex * 47) % 360;
+  const radiusStep = 2;
+  const maxRadius = DIAGRAM_RADIUS - size / 2;
+
+  for (let radius = 4; radius <= maxRadius; radius += radiusStep) {
+    for (let a = 0; a < angleCount; a++) {
+      const angle = ((angleOffset + (360 / angleCount) * a) * Math.PI) / 180;
+      const cx = DIAGRAM_CENTER + radius * Math.cos(angle);
+      const cy = DIAGRAM_CENTER + radius * Math.sin(angle);
+      const collides = placed.some((p) => Math.hypot(cx - p.cx, cy - p.cy) < (p.size + size) / 2 + BUBBLE_GAP);
+      if (!collides) return { cx, cy, size };
+    }
+  }
+
+  if (depth >= 6 || size <= 6) {
+    // Last resort for pathologically crowded diagrams: land it at minimum
+    // size rather than leaving it unplaced.
+    return { cx: DIAGRAM_CENTER, cy: DIAGRAM_CENTER, size: Math.max(size * 0.6, 6) };
+  }
+  return placeBubble(size * 0.85, placed, seedIndex, depth + 1);
 }
 
 function layoutIngredients(ingredients) {
-  const maxPct = ingredients[0] ? ingredients[0].pct : 1;
+  const maxWeight = Math.max(...ingredients.map(ing => ing.weight ?? ing.pct ?? 0), 0) || 1;
 
   const placed = [];
 
   ingredients.forEach((ing, index) => {
-    const size = Math.max(
+    const requestedSize = Math.max(
       MIN_BUBBLE,
-      Math.min(MAX_BUBBLE, Math.sqrt(ing.pct / maxPct) * MAX_BUBBLE)
+      Math.min(MAX_BUBBLE, Math.sqrt((ing.weight ?? ing.pct ?? 0) / maxWeight) * MAX_BUBBLE)
     );
-
-    let cx, cy;
-    if (index === 0) {
-      cx = 38;
-      cy = 60;
-    } else {
-      const angleStep = 360 / Math.max(1, ingredients.length - 1);
-      const angle = (angleStep * (index - 1) - 90 + (index % 2 === 0 ? 12 : -12)) * (Math.PI / 180);
-      let radius = (placed[0].size + size) / 2 + 8;
-      let attempts = 0;
-      let candidateCx, candidateCy, collides;
-
-      do {
-        candidateCx = placed[0].cx + radius * Math.cos(angle);
-        candidateCy = placed[0].cy + radius * Math.sin(angle);
-        collides = placed.some((p) => {
-          const dx = candidateCx - p.cx;
-          const dy = candidateCy - p.cy;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          return dist < (p.size + size) / 2 + 4;
-        });
-        if (collides) radius += 6;
-        attempts++;
-      } while (collides && attempts < 12);
-
-      cx = candidateCx;
-      cy = candidateCy;
-    }
-
-    cx = Math.max(size / 2, Math.min(100 - size / 2, cx));
-    cy = Math.max(size / 2, Math.min(100 - size / 2, cy));
+    const { cx, cy, size } = placeBubble(requestedSize, placed, index);
 
     placed.push({
       id: ing.id,
       name: ing.name,
       amount: ing.amount,
+      incomparable: ing.incomparable,
       effects: ing.effects || [],
       sideEffects: ing.sideEffects || [],
       color: BUBBLE_COLORS[index % BUBBLE_COLORS.length],
@@ -160,15 +251,13 @@ function layoutIngredients(ingredients) {
   return placed;
 }
 
-function clampPercent(value, size) {
-  return Math.max(0, Math.min(100 - size, value));
-}
-
 function applyGeometry(el, cx, cy, size) {
-  const left = clampPercent(cx - size / 2, size);
-  const top = clampPercent(cy - size / 2, size);
-  el.style.left = left + "%";
-  el.style.top = top + "%";
+  // No clamping to the container's own 0–100 box: placeBubble() already keeps
+  // every bubble inside the (larger) halo circle, and .ingredient-diagram has
+  // no overflow:hidden — clamping here would just shove correctly-placed
+  // bubbles back toward the center and re-introduce overlaps.
+  el.style.left = (cx - size / 2) + "%";
+  el.style.top = (cy - size / 2) + "%";
   el.style.width = size + "%";
   el.style.height = size + "%";
 }
@@ -183,9 +272,7 @@ function renderDiagram(ingredients) {
     return;
   }
 
-  bubbleData = layoutIngredients(ingredients).concat(
-    DECORATIVE_DOTS.map((d) => ({ ...d, interactive: false, color: BUBBLE_COLORS[BUBBLE_COLORS.length - 1] }))
-  );
+  bubbleData = layoutIngredients(ingredients);
 
   const halo = document.createElement("div");
   halo.className = "diagram-halo";
@@ -195,6 +282,7 @@ function renderDiagram(ingredients) {
     const id = data.id || `dot-${i}`;
     const bubble = document.createElement("div");
     bubble.className = "bubble" + (data.interactive ? " is-interactive" : "");
+    if (data.interactive) bubble.title = `${data.name} ${data.amount}${data.incomparable ? " · 크기 비교 제외" : ""}`;
     applyGeometry(bubble, data.cx, data.cy, data.size);
 
     const fill = document.createElement("div");
@@ -220,14 +308,20 @@ function renderDiagram(ingredients) {
 
       const detail = document.createElement("div");
       detail.className = "bubble-detail";
-      detail.appendChild(buildDetailColumn("effects", data.effects));
-      detail.appendChild(buildDetailColumn("side effects", data.sideEffects));
+      const effects = data.effects.flatMap(text => EFFECT_KEYWORDS[text] || [text]);
+      detail.appendChild(buildDetailColumn("effects", effects.length ? effects : ["미확인"]));
+      detail.appendChild(buildDetailColumn("side effects", data.sideEffects.length ? data.sideEffects : ["미확인"]));
       content.appendChild(detail);
 
       bubble.appendChild(content);
 
       bubble.addEventListener("mouseenter", () => activate(id));
       bubble.addEventListener("mouseleave", () => deactivate());
+      bubble.tabIndex = 0;
+      bubble.setAttribute("role", "button");
+      bubble.setAttribute("aria-label", `${data.name} 성분 정보`);
+      bubble.addEventListener("focus", () => activate(id));
+      bubble.addEventListener("blur", () => deactivate());
     }
 
     diagramEl.appendChild(bubble);
