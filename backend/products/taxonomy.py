@@ -25,6 +25,7 @@ INGREDIENT_TYPES = {
     'folate': 'vitamin-b', 'vitamin_b12': 'vitamin-b', 'vitamin_c': 'vitamin-c',
     'magnesium': 'magnesium', 'probiotics': 'probiotics', 'vitamin_d': 'vitamin-d',
     'vitamin_e': 'vitamin-e', 'zinc': 'zinc', 'lutein': 'lutein', 'zeaxanthin': 'lutein',
+    'lutein_esters': 'lutein', 'zeaxanthin_isomers': 'lutein',
 }
 COMPARISON_GUIDES = {
     'omega3': ['1회 섭취 기준 EPA와 DHA', '어유 총량과 EPA·DHA 함량 구분',

@@ -27,7 +27,7 @@ AGE_NOTICE = '연령별 효능 순위가 아니라 성인용 표시가 확인된
 
 def category_notice(option_id):
     if option_id in ('kids','teens'):
-        return '현재 50종에서 아동·청소년용 연령과 용량을 확인한 제품이 없습니다. 성인용 제품을 임의로 추천하지 않습니다.'
+        return '아동·청소년 목록은 제품별 대상 연령·용량 검토를 마친 경우에만 연결합니다. 어린이용 표시만으로 전체 연령대에 추천하거나 성인용 제품을 임의로 연결하지 않습니다.'
     if option_id in ADULT_IDS:
         return AGE_NOTICE + (' 50대 이후 목록은 B12 흡수 관련 근거가 있는 영양소 포함 후보로 좁혔으며 해당 제품 용량의 권장은 아닙니다.' if option_id in ADULT_IDS[2:] else '')
     if option_id == 'sleep-stress':
