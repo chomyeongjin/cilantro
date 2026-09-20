@@ -46,6 +46,12 @@ const backLinkEl = document.querySelector(".back-link");
 let bubbleData = [];
 const bubbleEls = new Map();
 
+function ingredientAmount(fact) {
+  if (fact.amountPerServing == null) return "함량 미확인";
+  if (fact.unit === "CFU") return `${(fact.amountPerServing / 100000000).toLocaleString()}억 CFU`;
+  return `${fact.amountPerServing.toLocaleString()} ${(fact.unit || "").replace("mcg", "μg")}`;
+}
+
 function buildLayout() {
   gridEl.innerHTML = `
     <section class="detail-left">
@@ -60,6 +66,7 @@ function buildLayout() {
         <div class="detail-size">
           <div class="sub-label">size</div>
           <img class="detail-pill" id="detail-pill" src="${PILL_IMG}" alt="actual pill size">
+          <span class="example-yellow-pill" id="detail-example-pill" role="img" aria-label="노란 알약 사진 · 크기 예시" hidden></span>
           <div class="size-ruler" id="detail-ruler"></div>
           <div class="size-caption" id="detail-size-caption"></div>
         </div>
@@ -77,33 +84,57 @@ function buildLayout() {
 
     <section class="detail-right">
       <div class="ingredient-diagram" id="ingredient-diagram"></div>
+      <p id="diagram-note" class="diagram-note"></p>
+      <details class="product-details">
+        <summary>성분 함량·섭취 정보 보기</summary>
+        <p id="detail-example-note" class="product-note" hidden></p>
+        <p id="detail-serving"></p>
+        <div id="detail-facts"></div>
+        <ul id="detail-warnings" class="product-warnings"></ul>
+        <div id="detail-matching"></div>
+      </details>
     </section>
   `;
 }
 
 function renderProduct(product) {
   titleEl.textContent = product.categoryLabel;
-  document.title = `Cilantro — ${product.brand} ${product.product}`;
+  const shortName = product.product.replace(/\s*·\s*\d+\s*(?:캡슐|정)\s*[×xX]\s*\d+\s*개\s*$/, "");
+  document.title = `Cilantro — ${product.brand} ${shortName}`;
 
   if (backLinkEl && product.categoryId) {
     backLinkEl.href = `category.html?id=${encodeURIComponent(product.categoryId)}`;
   }
 
   document.getElementById("detail-brand").textContent = product.brand;
-  document.getElementById("detail-product-name").textContent = product.product;
+  document.getElementById("detail-product-name").textContent = shortName;
 
   const bottle = document.getElementById("detail-bottle");
   bottle.src = product.image;
-  bottle.alt = `${product.brand} ${product.product}`;
+  bottle.alt = `${product.brand} ${shortName}`;
 
-  const pillWidth = pillWidthFor(product.pillSizeMm);
+  const exampleSize = product.analysisStatus === "example" && !product.pillSizeMm;
+  const pillWidth = pillWidthFor(exampleSize ? 10 : product.pillSizeMm);
+  document.getElementById("detail-example-pill").hidden = !exampleSize;
+  document.getElementById("detail-example-pill").style.width = pillWidth + "px";
+  if (product.pillImage && product.pillImage.startsWith("/images/")) {
+    const photo = document.createElement("img");
+    photo.src = product.pillImage;
+    photo.alt = "";
+    document.getElementById("detail-example-pill").appendChild(photo);
+    document.getElementById("detail-example-pill").classList.add("has-photo");
+    document.getElementById("detail-pill").src = product.pillImage;
+  }
   document.getElementById("detail-pill").style.width = pillWidth + "px";
   document.getElementById("detail-ruler").style.width = pillWidth + "px";
   document.getElementById("detail-size-caption").textContent = product.pillSizeMm
     ? `${product.pillSizeMm}mm`
-    : "";
+    : exampleSize ? "1cm (예시)" : "미확인";
+  document.getElementById("detail-pill").hidden = !product.pillSizeMm;
+  document.getElementById("detail-ruler").hidden = !product.pillSizeMm && !exampleSize;
 
   const forList = document.getElementById("detail-for-list");
+  forList.closest(".detail-for").hidden = !(product.for || []).length;
   (product.for || []).forEach((text) => {
     const li = document.createElement("li");
     li.textContent = text;

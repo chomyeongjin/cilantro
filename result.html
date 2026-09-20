@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cilantro — you might need these...</title>
+  <title>Cilantro — 선택 조건에 맞는 제품</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="result.css">
+  <link rel="stylesheet" href="result.css?v=20260920-policy3">
 </head>
 
 <body>
@@ -40,18 +40,19 @@
   <main class="page">
     <div class="page-head">
       <a href="recommend.html" class="back-link" aria-label="뒤로 가기">&lt;</a>
-      <h1 class="page-title">you might need these...</h1>
+      <h1 class="page-title">선택 조건에 맞는 제품</h1>
     </div>
 
     <hr class="divider">
 
+    <section id="result-summary" class="result-summary" aria-live="polite"></section>
     <div class="result-grid" id="result-grid">
       <!-- cards injected by result.js from sessionStorage -->
     </div>
   </main>
 
   <script src="common.js"></script>
-  <script src="result.js"></script>
+  <script src="result.js?v=20260920-optional"></script>
 </body>
 
 </html>

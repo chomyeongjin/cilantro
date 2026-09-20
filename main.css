@@ -62,7 +62,7 @@ ul {
     height: 100vh;
     width: var(--sidebar-collapsed);
     border-right: 2px solid var(--line);
-    background: rgba(255, 243, 229, 0.95);
+    background: transparent;
     overflow: hidden;
     z-index: 100;
     transition: width 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;

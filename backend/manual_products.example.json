@@ -1,0 +1,32 @@
+[
+  {
+    "id": "manual-now-ultra-omega3-bovine-90-us",
+    "product": "NOW Ultra Omega-3 Fish Oil (Bovine Gelatin), 90 Softgels",
+    "productUrl": "https://www.nowfoods.com/products/supplements/ultra-omega-3-fish-oil-bovine-gelatin-softgels",
+    "variantNote": "미국 공식 페이지의 Bovine Gelatin, 90 Softgels, SKU 1661, UPC 733739016614 버전. 180정·Fish Gelatin·Ultra Omega 3-D 제품과 구분. 공식 제품명/포장 정보를 2026-09-17 확인; 성분·함량은 AI 추출 후 라벨 대조 필요.",
+    "sources": [
+      {
+        "id": "now-official",
+        "kind": "manufacturer",
+        "url": "https://www.nowfoods.com/products/supplements/ultra-omega-3-fish-oil-bovine-gelatin-softgels",
+        "title": "NOW 공식 제품 설명과 Supplement Facts",
+        "text": null
+      }
+    ]
+  },
+  {
+    "id": "manual-life-extension-super-omega3-01982-us",
+    "product": "Life Extension Super Omega-3 EPA/DHA Fish Oil, Sesame Lignans & Olive Extract, 120 softgels",
+    "productUrl": "https://www.lifeextension.com/vitamins-supplements/item01982/super-omega-3-epa-dha-fish-oil-sesame-lignans-olive-extract",
+    "variantNote": "미국 공식 페이지의 Item 01982, 120 softgels 버전. Plus·Enteric Coated·다른 포장/리뉴얼 버전과 구분. 공식 제품명/포장 정보를 2026-09-17 확인; 성분·함량은 AI 추출 후 라벨 대조 필요.",
+    "sources": [
+      {
+        "id": "life-extension-official",
+        "kind": "manufacturer",
+        "url": "https://www.lifeextension.com/vitamins-supplements/item01982/super-omega-3-epa-dha-fish-oil-sesame-lignans-olive-extract",
+        "title": "Life Extension 공식 제품 설명과 Supplement Facts",
+        "text": null
+      }
+    ]
+  }
+]

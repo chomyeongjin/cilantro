@@ -24,7 +24,17 @@ function setStatus(text, isError) {
 }
 
 // Key result.js reads on load — must match the one documented in api.js.
-const RESULTS_KEY = "cilantro:recommendations";
+const RESULTS_KEY = "cilantro:recommendations:v2";
+
+// Radio groups stay single-select, but clicking the selected option clears it.
+const radioSelection = { age: selectedRadio("age"), gender: selectedRadio("gender") };
+document.querySelectorAll('input[type="radio"]').forEach(input => {
+  input.addEventListener("click", () => {
+    if (radioSelection[input.name] === input.value) input.checked = false;
+    radioSelection[input.name] = selectedRadio(input.name);
+  });
+  input.addEventListener("change", () => { radioSelection[input.name] = selectedRadio(input.name); });
+});
 
 submitBtn.addEventListener("click", async () => {
   const selections = {
@@ -33,12 +43,20 @@ submitBtn.addEventListener("click", async () => {
     goals: selectedCheckboxes("goal")
   };
 
+  if (!selections.age && !selections.gender && !selections.goals.length) {
+    setStatus("AGE, GENDER, GOAL 중 원하는 항목을 하나 이상 선택해주세요.", true);
+    return;
+  }
+  if (!selections.gender && ((selections.age && !selections.goals.length) || (!selections.age && selections.goals.length === 1))) {
+    window.location.href = `category.html?id=${encodeURIComponent(selections.age || selections.goals[0])}`;
+    return;
+  }
   submitBtn.disabled = true;
   setStatus("전송 중...", false);
   try {
     const response = await Api.postRecommendation(selections);
-    sessionStorage.setItem(RESULTS_KEY, JSON.stringify(response.items));
-    window.location.href = "result.html";
+    sessionStorage.setItem(RESULTS_KEY, JSON.stringify(response));
+    window.location.href = "result.html?v=3";
   } catch (err) {
     setStatus("전송하지 못했습니다. 다시 시도해주세요.", true);
     submitBtn.disabled = false;
