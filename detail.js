@@ -77,6 +77,7 @@ function buildLayout() {
       <div class="detail-for">
         <div class="sub-label">for</div>
         <ul id="detail-for-list"></ul>
+        <p id="detail-for-note" class="product-note"></p>
       </div>
 
       <a class="buy-link" id="detail-buy-link" target="_blank" rel="noopener">go for shopping</a>
@@ -85,6 +86,7 @@ function buildLayout() {
     <section class="detail-right">
       <div class="ingredient-diagram" id="ingredient-diagram"></div>
       <p id="diagram-note" class="diagram-note"></p>
+      <p id="ingredient-education-note" class="diagram-note"></p>
       <details class="product-details">
         <summary>성분 함량·섭취 정보 보기</summary>
         <p id="detail-example-note" class="product-note" hidden></p>
@@ -134,6 +136,8 @@ function renderProduct(product) {
   document.getElementById("detail-ruler").hidden = !product.pillSizeMm && !exampleSize;
 
   const forList = document.getElementById("detail-for-list");
+  document.getElementById("detail-for-note").textContent = product.forNote || "";
+  document.getElementById("ingredient-education-note").textContent = product.ingredientEducationNotice || "";
   forList.closest(".detail-for").hidden = !(product.for || []).length;
   (product.for || []).forEach((text) => {
     const li = document.createElement("li");
@@ -159,6 +163,21 @@ function renderProduct(product) {
     name.textContent = fact.name;
     const amount = document.createElement("dd");
     amount.textContent = ingredientAmount(fact);
+    const education = document.createElement("p");
+    education.textContent = `effects · ${(fact.effects || []).join(" · ")} / side effects · ${(fact.sideEffects || []).join(" · ")}`;
+    amount.appendChild(education);
+    const explanation = document.createElement("p");
+    explanation.textContent = fact.educationNote || "";
+    (fact.educationSources || []).forEach((url) => {
+      if (!url.startsWith("https://")) return;
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = " 성분 설명 근거";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      explanation.appendChild(link);
+    });
+    amount.appendChild(explanation);
     list.append(name, amount);
   });
   facts.appendChild(list);
@@ -208,8 +227,8 @@ function renderProduct(product) {
       amount: ingredientAmount(f),
       weight: f.amountMgPerServing ?? 0,
       incomparable: f.amountMgPerServing == null,
-      effects: (product.claims || []).filter(c => c.ingredientKeys.includes(f.key)).map(c => c.text),
-      sideEffects: []
+      effects: f.effects || ["효과 근거 제한"],
+      sideEffects: f.sideEffects || ["안전성 개별 확인"]
     })).sort((a, b) => b.weight - a.weight);
     renderDiagram(bubbles);
     document.getElementById("diagram-note").textContent =
@@ -340,8 +359,8 @@ function renderDiagram(ingredients) {
       const detail = document.createElement("div");
       detail.className = "bubble-detail";
       const effects = data.effects.flatMap(text => EFFECT_KEYWORDS[text] || [text]);
-      detail.appendChild(buildDetailColumn("effects", effects.length ? effects : ["미확인"]));
-      detail.appendChild(buildDetailColumn("side effects", data.sideEffects.length ? data.sideEffects : ["미확인"]));
+      detail.appendChild(buildDetailColumn("effects", effects.length ? effects : ["효과 근거 제한"]));
+      detail.appendChild(buildDetailColumn("side effects", data.sideEffects.length ? data.sideEffects : ["안전성 개별 확인"]));
       content.appendChild(detail);
 
       bubble.appendChild(content);

@@ -1,6 +1,7 @@
 """Conservative deterministic units and the existing frontend response contract."""
 from .models import Analysis
 from .taxonomy import COMPARISON_GUIDES, INGREDIENT_TYPES, LABELS
+from .ingredient_education import ingredient_education, audience_for, NOTICE, FOR_NOTICE
 
 MASS_TO_MG = {'g': 1000, 'mg': 1, 'mcg': 0.001}
 
@@ -32,7 +33,7 @@ def product_view(record):
     for ingredient in analysis.ingredients:
         amount = per_serving(ingredient, analysis)
         mg = amount * MASS_TO_MG[ingredient.unit] if amount is not None and ingredient.unit in MASS_TO_MG else None
-        facts.append({**ingredient.model_dump(), 'amountPerServing': amount,
+        facts.append({**ingredient.model_dump(), **ingredient_education(ingredient.key), 'amountPerServing': amount,
                       'amountMgPerServing': mg, 'basisLabel': '표시된 1회 섭취량 기준' if amount is not None else '기준 미확인'})
     by_key = {f['key']: f for f in facts}
     # Reject physically inconsistent known parent/child amounts.
@@ -70,8 +71,8 @@ def product_view(record):
             bubbles.append({'id': fact['key'], 'name': fact['name'], 'rank': index,
                             'amount': f"{number(fact['amountPerServing'])}{fact['unit']} / 1회",
                             'pct': fact['amountMgPerServing'] / total * 100,
-                            'effects': [c.text for c in analysis.claims if fact['key'] in c.ingredientKeys],
-                            'sideEffects': [], 'evidence': fact['evidence']})
+                            'effects': fact['effects'],
+                            'sideEffects': fact['sideEffects'], 'evidence': fact['evidence']})
 
     main_effects = [f'표시 기능성: {c.text}' for c in analysis.claims[:3]]
     if not main_effects:
@@ -90,7 +91,9 @@ def product_view(record):
         'mainEffects': main_effects, 'categoryId': types[0] if types else 'all',
         'categoryLabel': LABELS.get(types[0], '영양제') if types else '영양제',
         'categoryIds': types, 'effectIds': effects, 'ageIds': ages,
-        'for': [f.value for f in analysis.audience], 'buyLink': listing['buyLink'],
+        'for': audience_for(facts, listing), 'forBasis': 'composition_interests',
+        'labelAudience': [f.value for f in analysis.audience], 'forNote': FOR_NOTICE,
+        'ingredientEducationNotice': NOTICE, 'buyLink': listing['buyLink'],
         'ingredients': bubbles, 'ingredientFacts': facts, 'comparison': metrics,
         'serving': analysis.serving.model_dump() if analysis.serving else None,
         'formulation': analysis.formulation.model_dump() if analysis.formulation else None,
