@@ -6,6 +6,8 @@
    each image is contained (object-fit: contain) inside its slot.
    ========================================================================== */
 
+
+
 .scatter {
   position: relative;
   width: 1040px;

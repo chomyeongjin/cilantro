@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cilantro — Product</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cilantro — Product</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@400;500&family=Oxanium:wght@600&family=Overpass+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@400;500&family=Oxanium:wght@600&family=Overpass+Mono:wght@500&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="main.css">
-<link rel="stylesheet" href="detail.css?v=20260920-pill-asset">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="detail.css?v=20260920-pill-asset">
 </head>
+
 <body>
 
-<!-- ===== Sidebar ===== -->
-<nav id="sidebar" class="sidebar">
-  <div class="sidebar-mark">C</div>
+  <!-- ===== Sidebar ===== -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-mark">C</div>
 
-  <div class="sidebar-panel">
-    <div class="logo">
-      <span class="logo-c">C</span><span class="logo-rest">ilantro</span>
+    <div class="sidebar-panel">
+      <div class="logo">
+        <span class="logo-c">C</span><span class="logo-rest">ilantro</span>
+      </div>
+
+      <ul class="menu-list">
+        <li><a href="index.html" data-menu="trending">트렌드 영양제</a></li>
+        <li><a href="products.html" data-menu="products">제품별로 보기</a></li>
+        <li><a href="recommend.html" data-menu="recommend">맞춤 영양제 추천</a></li>
+        <li><a href="#" data-menu="search">성분 검색</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Main ===== -->
+  <main class="page">
+    <div class="page-head">
+      <a href="products.html" class="back-link" aria-label="뒤로 가기">&lt;</a>
+      <h1 class="page-title" id="detail-title">&nbsp;</h1>
     </div>
 
-    <ul class="menu-list">
-      <li><a href="index.html" data-menu="trending">트렌드 영양제</a></li>
-      <li><a href="products.html" data-menu="products">제품별 설명</a></li>
-      <li><a href="recommend.html" data-menu="recommend">맞춤 영양제 추천</a></li>
-      <li><a href="#" data-menu="search">성분 검색</a></li>
-    </ul>
-  </div>
-</nav>
+    <hr class="divider">
 
-<!-- ===== Main ===== -->
-<main class="page">
-  <div class="page-head">
-    <a href="products.html" class="back-link" aria-label="뒤로 가기">&lt;</a>
-    <h1 class="page-title" id="detail-title">&nbsp;</h1>
-  </div>
+    <div class="detail-grid" id="detail-grid">
+      <!-- rendered by detail.js -->
+    </div>
+  </main>
 
-  <hr class="divider">
-
-  <div class="detail-grid" id="detail-grid">
-    <!-- rendered by detail.js -->
-  </div>
-</main>
-
-<script src="common.js"></script>
-<script src="api.js"></script>
-<script src="detail.js?v=20260920-matching"></script>
+  <script src="common.js"></script>
+  <script src="api.js"></script>
+  <script src="detail.js?v=20260920-matching"></script>
 </body>
+
 </html>

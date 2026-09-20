@@ -61,8 +61,8 @@
 }
 
 .result-name {
-  margin: 7px 0 18px;
-  font-size: 20px;
+  margin: 55px 0 20px;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
@@ -89,8 +89,33 @@
     margin-right: auto;
   }
 }
-.result-summary { font-size: 13px; line-height: 1.7; margin: 20px 0 28px; }
-.result-card details { font-size: 12px; line-height: 1.7; margin-top: 12px; overflow-wrap: anywhere; }
-.result-goals { font-size: 14px; }
-.result-review-warning { color: #853820; font-size: 13px; line-height: 1.7; border-left: 3px solid #853820; padding-left: 10px; }
-.result-eligibility { font-size: 13px; font-weight: bold; }
+
+.result-summary {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 20px 0 28px;
+}
+
+.result-card details {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.result-goals {
+  font-size: 14px;
+}
+
+.result-review-warning {
+  color: #853820;
+  font-size: 13px;
+  line-height: 1.7;
+  border-left: 3px solid #853820;
+  padding-left: 10px;
+}
+
+.result-eligibility {
+  font-size: 13px;
+  font-weight: bold;
+}

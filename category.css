@@ -45,11 +45,13 @@ a.compare-cell:hover {
 .cell-head .brand {
   font-weight: 500;
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .cell-head .product-name {
   font-weight: 400;
   font-size: 15px;
+  margin-bottom: 5px;
 }
 
 .cell-image {

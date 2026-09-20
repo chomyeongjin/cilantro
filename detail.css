@@ -15,6 +15,7 @@
   padding-bottom: 15px;
 }
 
+
 .detail-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -59,7 +60,7 @@
   width: min(65%, 248px);
   height: auto;
   object-fit: contain;
-  border: 1.5px solid color-mix(in srgb, var(--line) 70%, transparent);
+  /* border: 1.5px solid color-mix(in srgb, var(--line) 70%, transparent); */
 }
 
 .detail-size {
@@ -273,7 +274,7 @@
 }
 
 .diagram-note {
-  margin: 75px 0 10px;
+  margin: 20px 0 10px;
   font-size: 11px;
   line-height: 1.7;
   color: var(--muted);
@@ -281,6 +282,7 @@
 
 .product-details {
   font-size: 12px;
+  margin-top: 70px;
 }
 
 .product-details summary {
@@ -324,7 +326,7 @@
 
 .ingredient-facts {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 100px 1fr;
   gap: 14px 24px;
   padding: 20px 0;
   border-top: 1px solid var(--line);

@@ -85,8 +85,6 @@ function buildLayout() {
 
     <section class="detail-right">
       <div class="ingredient-diagram" id="ingredient-diagram"></div>
-      <p id="diagram-note" class="diagram-note"></p>
-      <p id="ingredient-education-note" class="diagram-note"></p>
       <details class="product-details">
         <summary>성분 함량·섭취 정보 보기</summary>
         <p id="detail-example-note" class="product-note" hidden></p>
@@ -95,6 +93,8 @@ function buildLayout() {
         <ul id="detail-warnings" class="product-warnings"></ul>
         <div id="detail-matching"></div>
       </details>
+      <p id="diagram-note" class="diagram-note"></p>
+      <p id="ingredient-education-note" class="diagram-note"></p>
     </section>
   `;
 }
